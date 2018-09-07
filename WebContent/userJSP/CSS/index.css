@@ -1,0 +1,861 @@
+
+body{
+    margin: 0;
+    padding: 0;
+}
+/*三角形*/
+.triangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width:7px 7px 0;
+    border-color:#333 transparent transparent;/*灰 透明 透明 */
+}
+/*倒三角形*/
+.down-triangle{
+border-width: 0 7px 7px;
+border-color: transparent transparent #333;/*透明 透明  灰*/
+}
+/*大容器*/
+.container{
+    width: 1350px;
+    height: auto;
+    margin: auto;
+}
+/*导航*/
+.nav{
+    width: 1350px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+/*导航logo*/
+.nav img{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+/*导航地址*/
+.nav .loc{
+    width: 70px;
+    height: 80px;
+    position: absolute;
+    left: 200px;
+    padding-left: 5px;
+    line-height: 80px;
+    font-size: 20px;
+}
+.nav .loc:hover{
+    border-left: 1px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+/** 地址隐藏菜单*/
+.nav .loc .loc-menu{
+    width: 480px;
+    height: 330px;
+    background-color: white;
+    position: absolute;
+    top: 80px;
+    left: -1px;
+    overflow: scroll;
+    display: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+/*地址三角形*/
+.loc div{
+    position: absolute;
+    left: 55px;
+    top: 38px;
+}
+/*.loc div:hover{*/
+    /*border-width: 0 7px 7px;*/
+    /*border-color: transparent transparent #333;/!*透明 透明  灰*!/*/
+/*}*/
+/*导航菜单*/
+.nav ul{
+    width: 360px;
+    height: 85px;
+    position: absolute;
+    top: -16px;
+    left: 270px;
+}
+.nav ul li:first-child{
+    background-color: rgb(239,66,56);
+}
+.nav ul li{
+    width: 70px;
+    height: 80px;
+    list-style: none;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 75px;
+    text-align: center;
+}
+.nav ul li:not(:first-child):hover{
+    color: rgb(239,66,56);
+}
+/*导航APP下载*/
+.download{
+    width: 130px;
+    height: 80px;
+    position: absolute;
+    left: 730px;
+    text-align: center;
+    line-height: 71px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.download:hover{
+    border-left: 1px solid rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+.download img{
+    position: absolute;
+    left: 10px;
+    top: 25px;
+}
+/*第二个三角形-APP下载*/
+.download div{
+    position: absolute;
+    top: 32px;
+    left: 107px;
+}
+/*.download .triangle:hover{*/
+    /*border-width: 0 7px 7px;*/
+    /*border-color: transparent transparent #333;/!*透明 透明  灰*!/*/
+/*}*/
+/*APP下载隐藏*/
+.download div:first-child{
+    width: 130px;
+    height: 170px;
+    position: absolute;
+    top: 80px;
+    left: -1px;
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+    display: none;
+}
+.download span{
+    width: 130px;
+    height: 20px;
+    position: absolute;
+    left: -105px;
+    font-size: 15px;
+}
+.download span:first-child{
+    top: 60px;
+}
+.download span:last-child{
+    top: 83px;
+    color: rgba(0,0,0,0.3);
+}
+.download img:first-child{
+    left: 24px;
+}
+/*导航搜索*/
+.nav .search{
+    width: 240px;
+    height: 40px;
+    border-radius: 30px;
+    position: absolute;
+    left: 920px;
+    top: 17px;
+    outline: none;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 15px;
+    padding-left: 20px;
+    background-color: rgb(250,248,250);
+}
+.nav .submit{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: absolute;
+    left: 1138px;
+    top: 17px;
+    background-color: rgb(239,66,56);
+    outline: none;
+    border: none;
+    background-image: url("../img/search.png");
+}
+/*头像，登录注册*/
+.header{
+    width: 90px;
+    height: 85px;
+    position: absolute;
+    top: 0;
+    left: 1200px;
+
+}
+.header:hover{
+    border-left: 1px solid  rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0,0,0,0.2);
+}
+.header img{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 5px;
+    top: 15px;
+    cursor: pointer;
+}
+/*登录注册三角形*/
+.header .triangle{
+    position: absolute;
+    left: 60px;
+    top: 30px;
+}
+/*.header .triangle:hover{*/
+    /*border-width: 0 7px 7px;*/
+    /*border-color: transparent transparent #333;/!*透明 透明  灰*!/*/
+/*}*/
+/*隐藏模块*/
+.header div:first-child{
+    width: 90px;
+    position: relative;
+    top: 80px;
+    left: 0;
+    color: rgba(0,0,0,0.4);
+    background-color: white;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    display: none;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.nav .header .login{
+    width: 90px;
+    height: 100px;
+    display: none;
+    position: absolute;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-left: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+.nav .header .login a{
+    font-size: 15px;
+    display: block;
+    height: 30px;
+    color: rgba(0,0,0,0.4);
+}
+.nav .header .login a:hover{
+    color:rgb(239,66,56);
+    /*border-bottom: 1px solid rgb(239,66,56);*/
+}
+/*轮播图*/
+.round{
+    width: 1350px;
+    height: 450px;
+    position: absolute;
+    top: 75px;
+    z-index: -1;
+}
+.pic{
+    width: 1350px;
+    height: 450px;
+}
+/*图标*/
+.round .icon{
+    width: 60px;
+    height: 80px;
+    background-color: rgba(255,255,255,0.2);
+    position: absolute;
+    color: rgba(255,255,255,0.5);
+
+}
+.round .icon:hover{
+    color: rgba(255,255,255,0.7);
+}
+.left{
+    top: 170px;
+    left: 50px;
+    /*display: none;*/
+    cursor: pointer;
+}
+.right{
+    left: 1215px;
+    top: 170px;
+    /*display: none;*/
+    cursor: pointer;
+}
+.left .fa{
+    padding-left: 10px;
+}
+.right .fa{
+    padding-left: 20px;
+}
+/*轮播图底部换页*/
+.changePage{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    top: 400px;
+    left: 650px;
+}
+.active{
+    background-color:rgb(239,66,56) ;
+}
+.changePage .page {
+    width: 10px;
+    height: 10px;
+    background-color: rgb(215,214,211);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 50%;
+    display:inline-block;
+}
+.changePage .page:hover{
+    background-color:rgb(239,66,56) ;
+}
+
+/*主内容*/
+.main{
+    width: 1350px;
+    height:auto;
+    position: absolute;
+    top: 600px;
+}
+.main h1{
+    color: rgb(239,66,56);
+    font-weight: 500;
+    font-size: 30px;
+    height: 10px;
+}
+/*正在热映*/
+.main-left .show-box{
+    width: 750px;
+    height: 700px;
+    position: relative;
+}
+/*主内容左边*/
+.main .main-left{
+    width: 750px;
+    height: auto;
+    margin-left: 95px;
+    float: left;
+}
+.main .show-box .hot-movie {
+    width: 165px;
+    height: 260px;
+    margin-left: 7px;
+    margin-right: 7px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.2);
+    transition:0.2s;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    margin-top: 30px;
+}
+.main .show-box .hot-movie:hover{
+    box-shadow: 0 7px 0 0 rgba(0,0,0,0.05);
+}
+.main .show-box .hot-movie img{
+    width: 165px;
+    height: 220px;
+}
+.main .show-box .hot-movie p{
+    position: absolute;
+    /* top: 250px; */
+    color: white;
+    /* left: 115px; */
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: -40px;
+}
+.main .show-box .hot-movie a{
+    text-decoration: none;
+}
+.main .show-box .hot-movie a span{
+    width: 165px;
+    height: 41px;
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    margin-top: -1px;
+    color: rgb(239,66,56);
+}
+.main .show-box .hot-movie a span:hover{
+    background-color: rgb(239,66,56);
+    color: white;
+}
+.main-left .show-box>a{
+    float: right;
+    margin-top: -15px;
+    margin-right: 20px;
+    text-decoration: none;
+    line-height: 14px;
+    color: rgb(239,66,56);
+    font-size: 15px;
+}
+.main-left .show-box>a:hover{
+    border-bottom: 1px solid rgb(239,66,56);
+}
+/*即将上映*/
+.main-left .show-box ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.main-left .show-box ul li{
+    display: inline-block;
+    padding: 0;
+    margin-bottom: 40px;
+}
+.main-left .show-box ul li .hot-movie{
+    width: 165px;
+    height: 290px;
+}
+.main-left .show-box .hot-movie>span{
+    font-size: 13px;
+    line-height: 33px;
+    padding-left: 15px;
+    width: 150px;
+    color: orange;
+    height: 31px;
+    background-color: rgb(251,251,251);
+    display: block;
+    margin-top: -5px;
+}
+.main-left .show-box .hot-movie>span:hover{
+    background-color: rgb(251,251,251);
+    color: orange;
+}
+.main-left .show-box .hot-movie div{
+    width: 165px;
+    height: 41px;
+    font-size: 15px;
+    padding: 0;
+    margin: auto;
+}
+.main-left .show-box .hot-movie div span:first-child{
+    width: 82px;
+    height: 40px;
+    display: inline-block;
+    margin: 0;
+    color: #999;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+}
+.main-left .show-box .hot-movie div span:first-child:hover{
+    background-color: white;
+}
+.main-left .show-box .hot-movie div span:last-child{
+    width: 82px;
+    height: 44px;
+    margin: 0;
+    display: inline-block;
+    border-left: 1px solid rgba(0,0,0,0.1);
+    color: #2d98f3;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+}
+.main-left .show-box .hot-movie div span:last-child:hover{
+    background-color: #2d98f3;
+    color: white;
+}
+.main-left .show-box ul li .hot-movie p:last-child{
+    position: relative;
+    top: 50px;
+    color: #999;
+    font-size: 14px;
+    left: -42px;
+}
+/*主内容右边*/
+.main .main-right{
+    width: 450px;
+    height: auto;
+    float: right;
+}
+/*第一个排行榜*/
+.ranking-list{
+    width: 400px;
+    height: 500px;
+}
+/*第一名样式*/
+.ranking{
+    width: 360px;
+    height: 80px;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-top: 50px;
+}
+.ranking:hover{
+    background-color: rgb(247,247,247);
+}
+.ranking img{
+    float: left;
+}
+.ranking i{
+    position: relative;
+    top: -7px;
+    left: -118px;
+    color: rgb(239,66,56);
+    font-size: 25px;
+}
+.ranking>span{
+    margin-left: -15px;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 17px;
+}
+.ranking span:last-child{
+    margin-left: 16px;
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: rgb(239,66,56);
+}
+/*排行榜样式*/
+.main-right ul{
+    width: 360px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 10px;
+}
+.main-right ul li{
+    line-height: 35px;
+}
+.main-right ul li:hover{
+    background-color: rgb(247,247,247);
+}
+.main-right ul li i{
+    font-size: 20px;
+    color: #999;
+}
+.main-right .num-color{
+    color: rgb(239,66,56);
+}
+.main-right ul li span:last-child{
+    float: right;
+    font-size: 15px;
+    color: rgb(239,66,56);
+}
+/*右边 今日大盘*/
+.total{
+    width: 360px;
+    height: 105px;
+    margin-top: 45px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: rgb(253,253,253);
+    margin-bottom: 70px;
+}
+.total h3{
+    width: 25px;
+    height: 85px;
+    margin: 0;
+    display: inline-block;
+    float: left;
+    padding: 10px;
+    color: #fff;
+    background-color: #ef4238;
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+}
+.total span{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 2px;
+    margin-top: 25px;
+    margin-left: 20px;
+    color: #ef4238;
+}
+.total p{
+    display: inline-block;
+    margin: 0;
+}
+.total>p{
+    color: #ef4238;
+}
+.total a{
+    display: inline-block;
+    text-align: center;
+    float: right;
+    margin-top: 40px;
+    margin-right: 15px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ef4238;
+    line-height: 10px;
+}
+.total a:hover{
+    border-bottom: 1px solid #ef4238;
+}
+.total #beijingTine{
+    width: 360px;
+    display: block;
+    color: #999;
+    font-size: 14px;
+    margin-top: 10px;
+    text-indent:1em
+}
+.total #beijingTine span{
+    width: 180px;
+    margin: 0;
+    display: inline-block;
+    font-size: 14px;
+    color: #999;
+    float: right;
+    font-weight: normal;
+}
+
+/*登录框*/
+#login-page{
+    width:400px;
+    height: 280px;
+    z-index: 999;
+    position: fixed;
+    left: 490px;
+    top: 120px;
+    text-align: center;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: none;
+}
+#login-page h2{
+    color: #969896;
+}
+#login-page a{
+    text-decoration: none;
+    color: rgb(239,66,56);
+    cursor: pointer;
+
+}
+#log-phone{
+    text-indent: 1em;
+    width: 250px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+#log-password{
+    text-indent: 1em;
+    width: 250px;
+    height: 25px;
+}
+#login-page p{
+    width: 295px;
+    margin-top: 7px;
+    font-size: 14px;
+}
+#login-page input:last-child{
+    width: 255px;
+    height: 35px;
+    background: rgb(239,66,56);
+    border-style: none;
+    border-radius: 3px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+#login-page span{
+    margin-left: -105px;
+    font-size: 14px;
+}
+.close{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: rgb(239,66,56);
+    cursor: pointer;
+}
+/*注册框*/
+#register{
+    width:400px;
+    height: 300px;
+    z-index: 999;
+    position: fixed;
+    left: 490px;
+    top: 120px;
+    text-align: center;
+    background-color:white;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: none;
+}
+#register h2{
+    color: #969896;
+}
+#register a{
+    text-decoration: none;
+    color: rgb(239,66,56);
+    cursor: pointer;
+}
+#reg-phone{
+    text-indent: 1em;
+    width: 250px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+#reg-password{
+    text-indent: 1em;
+    width: 250px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+#reg-password2{
+    text-indent: 1em;
+    width: 250px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+#register input:last-child{
+    width: 255px;
+    height: 35px;
+    background: rgb(239,66,56);
+    border-style: none;
+    border-radius: 3px;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 10px;
+}
+#register span{
+    margin-left: -105px;
+    font-size: 14px;
+}
+.close{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: rgb(239,66,56);
+    cursor: pointer;
+}
+/*最受期待*/
+.popular{
+    height: 200px;
+}
+.popular span{
+    display: inline-block;
+    margin-top: 65px;
+    font-size: 21px;
+}
+.popular i{
+    top: -60px;
+    left: -132px;
+}
+.popular .time {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 17px;
+    color: #999;
+    margin-bottom: 8px;
+}
+.popular p:last-child{
+    display: inline;
+    margin: 23px;
+    font-size: 14px;
+    color: #fdb863;
+}
+.popular2{
+    width: 360px;
+    height: 185px;
+    margin-top: 15px;
+}
+.popular2 div{
+    width: 170px;
+    height: 185px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.popular2 div:first-child{
+    float: left;
+}
+.popular2 div:last-child{
+    float: right;
+}
+.popular2 div span{
+    font-size: 17px;
+    margin-left: 10px;
+    display: block;
+}
+.popular2 div span:last-child{
+    color:#fdb863 ;
+    font-size: 14px;
+    line-height: 35px;
+}
+.popular2 .num{
+    width: 20px;
+    height: 20px;
+    background: #ffb400;
+    position: absolute;
+    font-size: 17px;
+    padding-left: 4px;
+    color: white;
+    font-style: italic;
+}
+/*Top100 样式*/
+.top100{
+    position: absolute;
+    top:1500px;
+}
+.ranking-list>a {
+    float: right;
+    margin-top: -10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #ffb400;
+    margin-right: 35px;
+}
+.top100 .ranking span:last-child{
+    color:#ffb400;
+}
+.top100 ul li span:last-child{
+    color:#ffb400;
+}
+.top100 h1{
+    color:#ffb400;
+}
+.top100 .num-color{
+    color:#ffb400;
+}
+/*脚部*/
+.footer{
+    background-color:#262426;
+    padding:56px 0;
+    margin:0 auto;
+    min-width:1200px;
+    margin-top:82px;
+    visibility:hidden;
+    width: 1350px;
+    position: absolute;
+    top: 2600px;
+}
+.footer p{
+    margin:0;
+    padding:0;
+    text-align:center;
+    font-size:14px;
+    line-height:20px;
+}
+.footer p,.footer p a{
+    color:#666;
+    text-decoration: none;
+}
+.footer .friendly-links a{
+    color:#ef4238;
+    text-decoration: none;
+}
+.footer .friendly-links a:hover{
+    text-decoration:underline;
+}
+.friendly-links span{
+    display:inline-block;
+    border-left:1px solid #444;
+    margin:0 7px;height:12px;
+    position:relative;top:1px;
+}
