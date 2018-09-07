@@ -54,13 +54,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="graph_echarts.html">添加电影</a>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath }/adminJSP/addMovie.jsp">添加电影</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="graph_flot.html">删除电影</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" href="graph_morris.html">所有电影</a>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath }/adminJSP/showMovie.jsp">所有电影</a>
                             </li>
 
                         </ul>
@@ -73,18 +70,16 @@
                     <li>
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">电影院</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="form_basic.html">添加电影院</a>
+                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/adminJSP/addCinema.jsp">添加电影院</a>
                             </li>
-                            <li><a class="J_menuItem" href="form_validate.html">删除电影院</a>
-                            </li>
-                            <li><a class="J_menuItem" href="form_advanced.html">查看电影院</a>
+                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/adminJSP/showCinema.jsp">查看电影院</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">用户</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="contacts.html">查看所有用户</a>
+                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/adminJSP/showUser.jsp">查看所有用户</a>
                             </li>
                         </ul>
                     </li>
