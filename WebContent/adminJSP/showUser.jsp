@@ -34,28 +34,35 @@
                             <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
                                 <thead>
                                         <tr>
-                                            <th>订单ID</th>
-                                            <th>电影名字</th>
-                                            <th>电影院名字</th>
-                                            <th>下单时间</th>
-                                            <th>用户名</th>
-                                            <th>价格</th>
+                                        	<th>用户头像</th>
+                                            <th>用户手机号</th>
+                                            <th>用户密码</th>
+                                            <th>用户昵称</th>
+                                            <th>用户性别</th>
+                                            <th>用户生日</th>
+                                            <th>用户工作</th>
+                                            <th>用户兴趣</th>
+                                            <th>用户余额号</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     
-                                    <c:forEach var="order" items="${ORDER_LIST }">
+                                    <c:forEach var="user" items="${USER_LIST }">
                                         <tr class="gradeX">
-                                            <td>${order.orderId }</td>
-                                            <td>${order.movieId }</td>
-                                            <td>${order.cinemaId }</td>
-                                            <td class="center">${order.time }</td>
-                                            <td class="center">${order.userPhone }</td>
-                                            <td class="center">${order.number }</td>
+                                        	<td><img alt="" src="${user.head }"></td>
+                                            <td>${user.userPhone }</td>
+                                            <td>${user.password }</td>
+                                            <td>${user.userName }</td>
+                                            <td class="center">${user.sex }</td>
+                                            <td class="center">${user.birthday }</td>
+                                            <td class="center">${user.job }</td>
+                                            <td class="center">${user.hobby }</td>
+                                            <td class="center">${user.balance }</td>
                                             <td class="center"><button>删除</button></td>
                                         </tr>
 									</c:forEach>
+
                            </tbody>
                                     <tfoot>
                                         <tr>

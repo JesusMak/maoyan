@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.maoyan.bean.User;
 import com.maoyan.util.C3P0Util;
@@ -67,5 +69,31 @@ public class UserDaoImpl {
 			e.printStackTrace();
 		}
 		return success;
+	}
+
+	public List<User> queryUser() {
+		List<User> userList = new ArrayList<User>();
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement("select * from user");
+			ResultSet rs = prepareStatement.executeQuery();
+			while (rs.next()) {
+				User user = new User();
+				user.setUserPhone(rs.getString(1));
+				user.setPassword(rs.getString(2));
+				user.setUserName(rs.getString(3));
+				user.setSex(rs.getString(4));
+				user.setBirthday(rs.getDate(5));
+				user.setJob(rs.getString(6));
+				user.setHobby(rs.getString(7));
+				user.setHead(rs.getString(8));
+				user.setBalance(rs.getDouble(9));
+				userList.add(user);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return userList;
 	}
 }

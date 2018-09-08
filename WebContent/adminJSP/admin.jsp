@@ -79,7 +79,7 @@
                     <li>
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">用户</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/adminJSP/showUser.jsp">查看所有用户</a>
+                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/queryUserCtrl">查看所有用户</a>
                             </li>
                         </ul>
                     </li>

@@ -1,5 +1,7 @@
 package com.maoyan.service;
 
+import java.util.List;
+
 import com.maoyan.bean.User;
 import com.maoyan.dao.UserDaoImpl;
 
@@ -30,8 +32,14 @@ public class UserServiceImpl {
 
 	}
 
+	// 用户注册功能
 	public boolean register(User user) {
 
 		return UserDaoImpl.getUserDaoImpl().register(user);
+	}
+
+	// 查询所有用户方法
+	public List<User> queryUser() {
+		return UserDaoImpl.getUserDaoImpl().queryUser();
 	}
 }
