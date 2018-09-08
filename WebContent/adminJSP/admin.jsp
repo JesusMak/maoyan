@@ -33,7 +33,7 @@
                                 </span>
                             </a>
                         </div>
-                        <div class="logo-element">hAdmin
+                        <div class="logo-element">
                         </div>
                     </li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">

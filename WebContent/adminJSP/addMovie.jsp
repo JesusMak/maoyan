@@ -12,12 +12,24 @@
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css"> 
+	    #pic{
+	    	width: 100px;
+		    height: 100px;
+		    margin: auto;
+		    border-radius: 50%;
+		    background:rgb(245,247,247)
+	    }
+	    #pic img{
+	    	width: 100px;
+		    height: 100px;
+		    border-radius: 50%;
+		    cursor:pointer;
+	    }
+    </style>
 </head>
-
 <body class="gray-bg">
-
-   <div class="wrapper wrapper-content animated fadeInRight">
-
+   <div class="wrapper wrapper-content animated fadeInRight" >
     <div class="row">
         <div class="col-sm-6">
             <div class="ibox float-e-margins">
@@ -25,29 +37,44 @@
                     <h5>添加电影</h5>
                 </div>
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" id="cinemaForm" action="" method="post">
+                    <form class="form-horizontal m-t" id="movieForm" action="" method="post">
+                    	<div id="pic"><img alt="" src="img/default-head.png"></div><br><br>
+                    	<div class="form-group">
+                            <label class="col-sm-3 control-label">上传图片：</label>
+                            <div class="col-sm-8">
+                                <input id="moviePost" name="moviePost" minlength="2" type="file" >
+                            </div>
+                        </div>
+                    
                         <div class="form-group">
                             <label class="col-sm-3 control-label">电影名字：</label>
                             <div class="col-sm-8">
-                                <input id="cinemaName" name="name" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                                <input id="movieName" name="name" minlength="2" type="text" class="form-control" required="" aria-required="true">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">电影院地址：</label>
+                            <label class="col-sm-3 control-label">电影价格：</label>
                             <div class="col-sm-8">
-                                <input id="cinemaAdd" name="address" type="text" class="form-control" required="" aria-required="true">
+                                <input id="moviePrice" name="price" type="text" class="form-control" required="" aria-required="true">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">影厅：</label>
+                            <label class="col-sm-3 control-label">电影类型：</label>
                             <div class="col-sm-8">
-                                <input id="cinemaHall" name="hall" type="text" class="form-control" >
+                                <input id="movieType" name="type" type="text" class="form-control" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">地区：</label>
+                            <label class="col-sm-3 control-label">电影时长：</label>
                             <div class="col-sm-8">
-                                <input id="cinemaArea" name="area" type="text" class="form-control" >
+                                <input id="movieLong" name="movieLong" type="text" class="form-control" >
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">是否上映：</label>
+                            <div class="col-sm-8">
+                                <input type="radio" name="show" value="已上映">已上映
+                                <input type="radio" name="show" value="未上映">未上映
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,19 +90,20 @@
 </div>
 <script type="text/javascript">
 function addCinema() {
-	var name = $("#cinemaName").val()
-	var add = $("#cinemaAdd").val()
-	var hall = $("#cinemaHall").val()
-	var area = $("#cinemaArea").val()
-	if(name==""||add==""||hall==""||area==""){
+	var name = $("#movieName").val()
+	var price = $("#moviePrice").val()
+	var type = $("#movieType").val()
+	var movieLong = $("#movieLong").val()
+	//var show = $("#movieLong").val()
+	if(name==""||price==""||type==""||movieLong==""){
 		alert("请输入完整信息！")
 	}else{
 		$.ajax({
 		    //几个参数需要注意一下
 		        type: "POST",//方法类型
 		        //dataType: "json",//预期服务器返回的数据类型
-		        url: "../addCinemaCtrl",//url
-		        data: $("#cinemaForm").serialize(),
+		        url: "../addMovieCtrl",//url
+		        data: $("#movieForm").serialize(),
 		        success: function (result) {
 		            console.log(result);//打印服务端返回的数据(调试用)
 		            if (result.resultCode == 200) {

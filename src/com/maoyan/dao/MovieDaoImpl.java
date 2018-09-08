@@ -25,6 +25,7 @@ public class MovieDaoImpl {
 		return movieDaoImpl;
 	}
 
+	// 查询所有电影
 	public List<Movie> queryMovie() {
 		List<Movie> movieList = new ArrayList<Movie>();
 
