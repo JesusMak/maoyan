@@ -565,11 +565,11 @@ img {
         </div>
         <div class="nav">
             <ul class="nav-bar">
-                <li class="bar"><a>首页</a></li>
-                <li class="bar"><a>电影</a></li>
-                <li class="bar"><a>影院</a></li>
-                <li class="bar"><a>榜单</a></li>
-                <li class="nochange" style="background-color: #ef4238;color: white;"><a>热点</a></li>
+                <li class="bar"><a href="${pageContext.request.contextPath }/IndexCtrl">首页</a></li>
+                <li class="bar"><a href="${pageContext.request.contextPath }/movieCtrl">电影</a></li>
+                <li class="bar"><a href="${pageContext.request.contextPath }/QueryCinemaCtrl">影院</a></li>
+                <li class="bar"><a href="${pageContext.request.contextPath }/QueryMovieBoardCtrl">榜单</a></li>
+                <li class="nochange" style="background-color: #ef4238;color: white;"><a href="${pageContext.request.contextPath }/hotIndex.jsp">热点</a></li>
             </ul>
         </div>
         <div class="user-info" >
@@ -577,7 +577,7 @@ img {
                 <img src="images/header/user.png" alt=""/>
                 <span class="caret"></span>
                 <div id="user">
-                    <a href="">登录</a>
+                    <a href="${pageContext.request.contextPath }/IndexCtrl">登录</a>
                 </div>
 
             </div>

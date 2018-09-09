@@ -35,10 +35,10 @@
                 </div>
             </div>
             <ul>
-                <li><a href="${pageContext.request.contextPath }">首页</a></li><!--
-            --><li><a href="${pageContext.request.contextPath }">电影</a></li><!--
-            --><li><a href="${pageContext.request.contextPath }">影院</a></li><!--
-            --><li><a href="${pageContext.request.contextPath }">榜单</a></li><!--
+                <li><a href="${pageContext.request.contextPath }/IndexCtrl">首页</a></li><!--
+            --><li><a href="${pageContext.request.contextPath }/movieCtrl">电影</a></li><!--
+            --><li><a href="${pageContext.request.contextPath }/QueryCinemaCtrl">影院</a></li><!--
+            --><li><a href="${pageContext.request.contextPath }/QueryMovieBoardCtrl">榜单</a></li><!--
             --><li><a href="${pageContext.request.contextPath }/hotIndex.jsp">热点</a></li>
             </ul>
             <div class="download">

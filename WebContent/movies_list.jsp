@@ -599,21 +599,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="nav">
             <ul class="navbar">
-                <li><a href="" data-act="home-click">首页</a></li>
-                <li><a href="" data-act="movies-click" class="active">电影</a></li>
-                <li><a href="" data-act="cinemas-click">影院</a></li>
-                <li><a href="" data-act="board-click">榜单</a></li>
-                <li><a href="" data-act="hotNews-click">热点</a></li>
+                <li><a href="${pageContext.request.contextPath }/IndexCtrl" data-act="home-click">首页</a></li>
+                <li><a href="${pageContext.request.contextPath }/movieCtrl" data-act="movies-click" class="active">电影</a></li>
+                <li><a href="${pageContext.request.contextPath }/QueryCinemaCtrl" data-act="cinemas-click">影院</a></li>
+                <li><a href="${pageContext.request.contextPath }/QueryMovieBoardCtrl" data-act="board-click">榜单</a></li>
+                <li><a href=" ${pageContext.request.contextPath }/hotIndex.jsp" data-act="hotNews-click">热点</a></li>
             </ul>
         </div>
-
         <div class="user-info">
             <div class="user-avatar J-login">
                 <img src="images/7dd82a16316ab32c8359debdb04396ef2897.png">
                 <span class="caret"></span>
                 <ul class="user-menu">
                     <li>
-                        <a href="javascript:void 0">登录</a>
+                        <a href="${pageContext.request.contextPath }/IndexCtrl">登录</a>
                     </li>
                 </ul>
 

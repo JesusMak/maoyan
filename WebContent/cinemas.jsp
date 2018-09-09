@@ -192,11 +192,11 @@
             <!--导航链接-->
             <div class="nav">
                 <ul class="navbar">
-                    <li><a href="/" data-act="home-click" class="chared">首页</a></li>
-                    <li><a href="/films" data-act="movies-click" class="chared">电影</a></li>
-                    <li><a href="QueryCinemaCtrl" data-act="cinemas-click" class="active">影院</a></li>
-                    <li><a href="QueryMovieBoardCtrl" data-act="board-click" class="chared">榜单</a></li>
-                    <li><a href="/news" data-act="hotNews-click" class="chared">热点</a></li>
+                    <li><a href=" ${pageContext.request.contextPath }/IndexCtrl" data-act="home-click" class="chared">首页</a></li>
+                    <li><a href=" ${pageContext.request.contextPath }/movieCtrl" data-act="movies-click" class="chared">电影</a></li>
+                    <li><a href="${pageContext.request.contextPath }/QueryCinemaCtrl" data-act="cinemas-click" class="active">影院</a></li>
+                    <li><a href=" ${pageContext.request.contextPath }/QueryMovieBoardCtrl" data-act="board-click" class="chared">榜单</a></li>
+                    <li><a href="${pageContext.request.contextPath }/hotIndex.jsp" data-act="hotNews-click" class="chared">热点</a></li>
                 </ul>
             </div>
             <!--登陆-->

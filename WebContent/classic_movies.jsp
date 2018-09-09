@@ -1,50 +1,21 @@
-<%@ page language="java"  import="java.util.*,com.maoyan.bean.*" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
-     
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-
-%>
-<base href="<%=basePath%>">
-
-
-     
     <meta charset="UTF-8">
     <title>即将上映 - 猫眼电影 - 一网打尽好电影</title>
-    <link type="text/css" href="css/movies.css" rel="stylesheet">
 
+    <link type="text/css" href="css/movies.css" rel="stylesheet">
     <style type="text/css">
 
     </style>
     <script src="js/JQuery3.3.1.js" type="application/javascript"></script>
-   <script src="js/maoyanjs.js"></script>
+    <script src="js/maoyanjs.js"></script>
 
 </head>
 <body>
-  <% //处理字符编码：request，response
-	request.setCharacterEncoding("utf-8");
-	response.setCharacterEncoding("utf-8");
-	response.setContentType("text/html;charset=utf-8");
-	
-	//通过request对象去获取在QueryCtrl里边设置的属性值
-	@SuppressWarnings("unchecked")
-	List<Movie> userList = (List<Movie>)request.getAttribute("MOVIE_LIST");
-	int pageNow=(Integer)request.getAttribute("PAGE_NOW");
-	int pageCount=(Integer)request.getAttribute("PAGE_COUNT");
-	 %>
-  
 
-
-
-      
-             
 <div class="header">
     <div class="header-inner" style="left: 0px;">
         <a class="logo" data-act="icon-click"></a>
@@ -308,7 +279,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <span>G</span>
                         <div>
                             <a class="js-city-name" data-ci="20" data-val="{ choosecityid:20 }" data-act="cityChange-click">广州</a>
-                            <a class="js-city-name" >桂林</a>
+                            <a class="js-city-name"
+
+
+                               >桂林</a>
                             <a class="js-city-name" data-ci="107" data-val="{ choosecityid:107 }" data-act="cityChange-click">贵阳</a>
                             <a class="js-city-name" data-ci="217" data-val="{ choosecityid:217 }" data-act="cityChange-click">赣州</a>
                             <a class="js-city-name" data-ci="307" data-val="{ choosecityid:307 }" data-act="cityChange-click">广元</a>
@@ -613,12 +587,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <li><a href="${pageContext.request.contextPath }/movieCtrl" data-act="movies-click" class="active">电影</a></li>
                 <li><a href="${pageContext.request.contextPath }/QueryCinemaCtrl" data-act="cinemas-click">影院</a></li>
                 <li><a href="${pageContext.request.contextPath }/QueryMovieBoardCtrl" data-act="board-click">榜单</a></li>
-                <li><a href="${pageContext.request.contextPath }/hotIndex.jsp" data-act="hotNews-click">热点</a></li>
+                <li><a href=" ${pageContext.request.contextPath }/hotIndex.jsp" data-act="hotNews-click">热点</a></li>
             </ul>
         </div>
+
         <div class="user-info">
             <div class="user-avatar J-login">
-                <img src="maoyan/images/user.png">
+                <img src="images/7dd82a16316ab32c8359debdb04396ef2897.png">
                 <span class="caret"></span>
                 <ul class="user-menu">
                     <li>
@@ -651,13 +626,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="header-placeholder"></div>
 
-
+<!--导航栏-->
 
 <div class="subnav">
     <ul class="navbar">
         <li><a href="play_now.jsp">正在热映</a></li>
-        <li><a class="active">即将上映</a></li>
-        <li><a href="classic_movies.jsp">经典影片</a></li>
+        <li><a href="movieCtrl">即将上映</a></li>
+        <li><a class="active">经典影片</a></li>
     </ul>
 </div>
 <!--内容-->
@@ -868,7 +843,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="cat-sorter">
                     <ul>
                         <li>
-            <span class="sort-control-group">
+            <span class="sort-control-group" style="cursor: default">
               <span class="sort-control sort-radio sort-radio-checked" onclick="currentRadio(0);"></span>
               <span class="sort-control-label">按热门排序</span>
             </span>
@@ -879,37 +854,524 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <span class="sort-control-label">按时间排序</span>
             </span>
                         </li>
-
+                        <li>
+            <span class="sort-control-group">
+              <span class="sort-control sort-radio" onclick="currentRadio(2);"></span>
+              <span class="sort-control-label">按评价排序</span>
+            </span>
+                        </li>
                     </ul>
                 </div>
                
             </div>
-            
             <div class="movies-list">
 
                 <dl class="movie-list">
-                
-                       <c:forEach var="movie" items="${MOVIE_LIST }">
-                        <dd>
+                    <dd>
                         <div class="movie-item">
-                            <a href="movies_list.jsp" target="_blank">
+                            <a href="/films/246596" target="_blank" data-act="movie-click" data-val="{movieid:246596}">
                                 <div class="movie-poster">
-                                    <img class="poster-default" src="maoyan/images/loading_2.e3d934bf.png">
-                                    <img  src="${movie.post }">
+                                    <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                    <img src="images/742e20f7a21c7c6f426d3b278ece3a243774480.jpg@160w_220h_1e_1c">
                                 </div>
                             </a>
 
                             <div class="movie-ver"></div>
                         </div>
                         <div class="channel-detail movie-item-title" title="昨日青空">
-                            <a href="queryCommentCtrl" target="_blank">${movie.movieName }</a>
+                            <a href="/films/246596" target="_blank" data-act="movies-click" data-val="{movieId:246596}">昨日青空</a>
                         </div>
-                        <div class="channel-detail channel-detail-prescore">点映评分<i class="integer">${movie.grade}</i></div>
+                        <div class="channel-detail channel-detail-prescore">点映评分<i class="integer">8.</i><i class="fraction">7</i></div>
 
-                    </dd>
-                </c:forEach>
-                  
-               </dl>
+                    </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1229214" target="_blank" data-act="movie-click" data-val="{movieid:1229214}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/808c13573707a7414224bb1a28fde34b853667.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="爸，我一定行的">
+                        <a href="/films/1229214" target="_blank" data-act="movies-click" data-val="{movieId:1229214}">爸，我一定行的</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/343208" target="_blank" data-act="movie-click" data-val="{movieid:343208}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/7a2c3acb1bda2baad8df309b046d0872344909.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"><i class="imax3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="蚁人2：黄蜂女现身">
+                        <a href="/films/343208" target="_blank" data-act="movies-click" data-val="{movieId:343208}">蚁人2：黄蜂女现身</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/344450" target="_blank" data-act="movie-click" data-val="{movieid:344450}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/eed97cfe2718d28d688615830856d07b226733.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"><i class="m3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="爵迹2">
+                        <a href="/films/344450" target="_blank" data-act="movies-click" data-val="{movieId:344450}">爵迹2</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1216446" target="_blank" data-act="movie-click" data-val="{movieid:1216446}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/c2abb511598ee1b00237215a3396770c309005.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="快把我哥带走">
+                        <a href="/films/1216446" target="_blank" data-act="movies-click" data-val="{movieId:1216446}">快把我哥带走</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/341737" target="_blank" data-act="movie-click" data-val="{movieid:341737}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/53e39ceee7bfbada4dc89bd93bbd334b198786.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"><i class="imax3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="碟中谍6：全面瓦解">
+                        <a href="/films/341737" target="_blank" data-act="movies-click" data-val="{movieId:341737}">碟中谍6：全面瓦解</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/343873" target="_blank" data-act="movie-click" data-val="{movieid:343873}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/95542e72e8b71ba8d396ad0a65a57f0e4644606.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="墨多多谜境冒险">
+                        <a href="/films/343873" target="_blank" data-act="movies-click" data-val="{movieId:343873}">墨多多谜境冒险</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/248162" target="_blank" data-act="movie-click" data-val="{movieid:248162}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/96c004133cab57fa8cd2f35ca9a8ae8c1023915.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"><i class="imax2d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="欧洲攻略">
+                        <a href="/films/248162" target="_blank" data-act="movies-click" data-val="{movieId:248162}">欧洲攻略</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/343499" target="_blank" data-act="movie-click" data-val="{movieid:343499}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/b466812aec8187e2c7a2c3b0ed4024574165570.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="萌学园：寻找盘古">
+                        <a href="/films/343499" target="_blank" data-act="movies-click" data-val="{movieId:343499}">萌学园：寻找盘古</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1218190" target="_blank" data-act="movie-click" data-val="{movieid:1218190}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/091f305b0a415080d5cb3a0a470d0763431429.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="大师兄">
+                        <a href="/films/1218190" target="_blank" data-act="movies-click" data-val="{movieId:1218190}">大师兄</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/342166" target="_blank" data-act="movie-click" data-val="{movieid:342166}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/653e8e53c9a4e068d2a2e88509ac864e966198.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="无双">
+                        <a href="/films/342166" target="_blank" data-act="movies-click" data-val="{movieId:342166}">无双</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1219932" target="_blank" data-act="movie-click" data-val="{movieid:1219932}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/a8683adce591ffb227836c0dacc74b48264511.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"><i class="m3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="未来机器城">
+                        <a href="/films/1219932" target="_blank" data-act="movies-click" data-val="{movieId:1219932}">未来机器城</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/334625" target="_blank" data-act="movie-click" data-val="{movieid:334625}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/eb84ba313a5e77ebe7148d3ad7cfaf241855793.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="美食大冒险之英雄烩">
+                        <a href="/films/334625" target="_blank" data-act="movies-click" data-val="{movieId:334625}">美食大冒险之英雄烩</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/343070" target="_blank" data-act="movie-click" data-val="{movieid:343070}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/830459ae19f5cacac0dd21dba56caf031867206.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"><i class="m3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="精灵旅社3：疯狂假期">
+                        <a href="/films/343070" target="_blank" data-act="movies-click" data-val="{movieId:343070}">精灵旅社3：疯狂假期</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1217966" target="_blank" data-act="movie-click" data-val="{movieid:1217966}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/01f9953ad81492378746e8a762be3196233628.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="封门笔仙">
+                        <a href="/films/1217966" target="_blank" data-act="movies-click" data-val="{movieId:1217966}">封门笔仙</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/248907" target="_blank" data-act="movie-click" data-val="{movieid:248907}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/37b48c6684b585fd837ed4a348d159bc976986.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+                        <div class="channel-action channel-action-pre">
+                            <a>预售</a>
+                        </div>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="新乌龙院之笑闹江湖">
+                        <a href="/films/248907" target="_blank" data-act="movies-click" data-val="{movieId:248907}">新乌龙院之笑闹江湖</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/493549" target="_blank" data-act="movie-click" data-val="{movieid:493549}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/b3b2cd95cbe16c89c63b4b54db1bc765190928.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="大寒">
+                        <a href="/films/493549" target="_blank" data-act="movies-click" data-val="{movieId:493549}">大寒</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/249165" target="_blank" data-act="movie-click" data-val="{movieid:249165}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/ce5438365952eb66c8ef607a29aef9352453261.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"><i class="m3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="大轰炸">
+                        <a href="/films/249165" target="_blank" data-act="movies-click" data-val="{movieId:249165}">大轰炸</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1203437" target="_blank" data-act="movie-click" data-val="{movieid:1203437}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/c9474540c11d93e0f8d030d0e0aea0907428783.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="影">
+                        <a href="/films/1203437" target="_blank" data-act="movies-click" data-val="{movieId:1203437}">影</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1141500" target="_blank" data-act="movie-click" data-val="{movieid:1141500}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/cf27cea176cfb9963c9fda8b096b7e4786486.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="最后的棒棒">
+                        <a href="/films/1141500" target="_blank" data-act="movies-click" data-val="{movieId:1141500}">最后的棒棒</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1218091" target="_blank" data-act="movie-click" data-val="{movieid:1218091}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/e3de59643ca83805ba43c6bdf2c2e4415314350.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="飞驰人生">
+                        <a href="/films/1218091" target="_blank" data-act="movies-click" data-val="{movieId:1218091}">飞驰人生</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1207260" target="_blank" data-act="movie-click" data-val="{movieid:1207260}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/d615eb701953f795a4b0912fe6e1b49a919326.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="如影随心">
+                        <a href="/films/1207260" target="_blank" data-act="movies-click" data-val="{movieId:1207260}">如影随心</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1203575" target="_blank" data-act="movie-click" data-val="{movieid:1203575}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/76c660b123c9c1456f0e32178122d0f77783022.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="反贪风暴3">
+                        <a href="/films/1203575" target="_blank" data-act="movies-click" data-val="{movieId:1203575}">反贪风暴3</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1217402" target="_blank" data-act="movie-click" data-val="{movieid:1217402}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/081068635bc11107ba0dd37536c7b8761049155.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="李茶的姑妈">
+                        <a href="/films/1217402" target="_blank" data-act="movies-click" data-val="{movieId:1217402}">李茶的姑妈</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1196151" target="_blank" data-act="movie-click" data-val="{movieid:1196151}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/4fc5d71927f830846d9158f630fae2f24450601.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="李宗伟：败者为王">
+                        <a href="/films/1196151" target="_blank" data-act="movies-click" data-val="{movieId:1196151}">李宗伟：败者为王</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/1218029" target="_blank" data-act="movie-click" data-val="{movieid:1218029}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/8e438e646b727e55a4eac0f8aef866831508133.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="少年的你">
+                        <a href="/films/1218029" target="_blank" data-act="movies-click" data-val="{movieId:1218029}">少年的你</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/248906" target="_blank" data-act="movie-click" data-val="{movieid:248906}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/97665f5c5e1e3fdb5ef75dd80d2fd8a2384493.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="流浪地球">
+                        <a href="/films/248906" target="_blank" data-act="movies-click" data-val="{movieId:248906}">流浪地球</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/345655" target="_blank" data-act="movie-click" data-val="{movieid:345655}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/7cd4fd40a34a7b49c697280db1e7048b2529049.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"><i class="m3d"></i></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="云南虫谷">
+                        <a href="/films/345655" target="_blank" data-act="movies-click" data-val="{movieId:345655}">云南虫谷</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/569712" target="_blank" data-act="movie-click" data-val="{movieid:569712}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/5e167f3334700264f19a1c47ca4a012912655725.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="黑子的篮球·终极一战">
+                        <a href="/films/569712" target="_blank" data-act="movies-click" data-val="{movieId:569712}">黑子的篮球·终极一战</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd><dd>
+                    <div class="movie-item">
+                        <a href="/films/332023" target="_blank" data-act="movie-click" data-val="{movieid:332023}">
+                            <div class="movie-poster">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/d0c6702c10eeaa53d77fb2524686cb71208605.jpg@160w_220h_1e_1c">
+                            </div>
+                        </a>
+
+                        <div class="movie-ver"></div>
+                    </div>
+                    <div class="channel-detail movie-item-title" title="冰海陷落">
+                        <a href="/films/332023" target="_blank" data-act="movies-click" data-val="{movieId:332023}">冰海陷落</a>
+                    </div>
+                    <div class="channel-detail channel-detail-orange"><span class="stonefont"></span>人想看</div>
+
+                </dd></dl>
 
             </div>
 
@@ -917,59 +1379,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="movies-pager">
 
-           <ul class="list-pager">
+            <ul class="list-pager">
+
+                <li class="active">
+                    <a class="page_1" href="javascript:void(0);" style="cursor: default">1</a>
+
+                </li>
+                <li>
+                    <a class="page_2" href="?showType=2&amp;offset=30">2</a>
+
+                </li>
+                <li>
+                    <a class="page_3" href="?showType=2&amp;offset=60">3</a>
+
+                </li>
+                <li>
+                    <a class="page_4" href="?showType=2&amp;offset=90">4</a>
+
+                </li>
+                <li>
+                    <a class="page_5" href="?showType=2&amp;offset=120">5</a>
+
+                </li>
+
+                <li class="sep">...</li>
+                <li>
+                    <a class="page_10" href="?showType=2&amp;offset=270">10</a>
+
+                </li>
 
 
 
-    <%
-            
-            
-          //4.要实现首页，上一页，下一页，末页
-			if(pageNow !=1) {
-				out.print("<li><a href = 'movieCtrl?curPageNow="+1+"'>首页</a></li>&nbsp;&nbsp;&nbsp");
-				out.print("<li><a href = 'movieCtrl?curPageNow="+(pageNow-1)+"'>上一页</a></li>&nbsp;&nbsp;&nbsp");
-				
-			}
-			
-			//5、当总的页码数pagecount<=5的时候，不需要显示首页，上一页，下一页，末页
-			if(pageCount<=5) {
-				for(int i=1;i<=pageCount;i++) {
-					out.print("<li class='active1' onclick='paging("+i+")'><a href = 'movieCtrl?curPageNow="+i+"'>"+i+"</a></li>&nbsp;&nbsp;");
-				}
-			}else {
-				
-				//3、
-				if(pageNow<=pageCount-5) {
-
-					for(int i = pageNow; i < pageNow +5; i++) {
-						out.print("<li class='active1' onclick='paging("+i+")'><a href = 'movieCtrl?curPageNow="+i+"'>"+i+"</a></li>&nbsp;&nbsp;&nbsp");
-					}
-				}else {
-					//将最后的5页内容单独打印
-					for(int i = pageCount-(5-1); i < pageCount; i++) {
-						if(i>0){
-							out.print("<li class='active1' onclick='paging("+i+")'><a href = 'movieCtrl?curPageNow="+i+"'>"+i+"</a></li>&nbsp;&nbsp;&nbsp");
-						}
-					}
-				}
-			}
-			
-			
-				
-			//下一页，末页
-			if(pageNow !=pageCount) {
-				out.print("<li><a href = 'movieCtrl?curPageNow="+(pageNow+1)+"'>下一页</a></li>&nbsp&nbsp&nbsp");
-				out.print("<li><a href = 'movieCtrl?curPageNow="+(pageCount)+"'>末页</a></li>&nbsp&nbsp&nbsp");
-				
-			}
-            %>
-  
-</ul>
+                <li>  <a class="page_2" href="?showType=2&amp;offset=30">下一页</a>
+                </li>
+            </ul>
 
         </div>
     </div>
 </div>
-
+</div>
 
 <div class="footer" style="visibility: visible;">
     <p class="friendly-links">
@@ -987,7 +1435,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="http://i.meituan.com/client" data-query="utm_source=wwwmaoyan" target="_blank">美团下载</a>
     </p>
     <p>
-        ?2016
+        ©2016
         猫眼电影 maoyan.com
         <a href="https://tsm.miit.gov.cn/pages/EnterpriseSearchList_Portal.aspx?type=0&amp;keyword=京ICP证160733号&amp;pageNo=1" target="_blank">京ICP证160733号</a>
         <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备16022489号-1</a>
@@ -997,6 +1445,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </p>
     <p>北京猫眼文化传媒有限公司</p>
 </div>
-
 </body>
 </html>
