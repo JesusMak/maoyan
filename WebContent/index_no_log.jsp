@@ -179,7 +179,7 @@
                     <span>9641.13万</span>
                 </div>
                 <ul>
-                 <c:forEach var="movie" items="${MOVIE_LIST}" varStatus="status">
+                 <c:forEach var="movie" items="${MOVIE_LIST}" varStatus="status" begin="2" end="8">
                     <li>
                         <i class="num-color">&nbsp;${status.index + 2}&nbsp;</i>
                         <span>&nbsp; ${movie.movieName}</span>
@@ -230,9 +230,9 @@
                     </div>
                 </div>
                 <ul>
-                    <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status">
+                    <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status" begin="4" end="10">
                     <li>
-                        <i>&nbsp;${status.index+4 }&nbsp;</i>
+                        <i>&nbsp;${status.index }&nbsp;</i>
                         <span>&nbsp;${movie.movieName }</span>
                         <span style="color:#fdb863">123143人想看&nbsp;</span>
                     </li>
@@ -253,9 +253,9 @@
                     <span>9.1分</span>
                 </div>
                 <ul>
-                 <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status">
+                 <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status" begin="2" end="10">
                     <li>
-                        <i class="num-color">&nbsp;${status.index +2}&nbsp;</i>
+                        <i class="num-color">&nbsp;${status.index }&nbsp;</i>
                         <span>&nbsp;${movie.movieName }</span>
                         <span>8.7分&nbsp;</span>
                     </li>
