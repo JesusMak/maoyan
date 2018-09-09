@@ -23,7 +23,7 @@
                         <h5>添加管理员</h5>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal" action="/AddAdminCtrl" method="post">
+                        <form class="form-horizontal" action="AddAdminCtrl" method="post">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">管理员名：</label>
                                 <div class="col-sm-8">
@@ -69,7 +69,7 @@
         		var name = $("#name").val()
         		$.ajax(
                 	{
-                		url:"/AddAdminCtrl",
+                		url:"AddAdminCtrl",
                 		type:"get",
     	                data:"name="+name,
     	                success:function(result){

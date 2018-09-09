@@ -282,7 +282,7 @@
                 		<p class="board-content">榜单规则：将昨日国内热映的影片，按照评分从高到低排列取前10名，每天上午10点更新。相关数据来源于“猫眼专业版”及“猫眼电影库”。</p>
 				    </c:when>
 				    <c:when test="${'monthWish' eq requestScope.BOARDNO}">
-                		<p class="board-content">榜单规则：将昨日国内待映影片，按照之前30天的想看数总量从高到低排列取前50名，每天上午10点更新。相关数据来源于“猫眼电影库”。</p>
+                		<p class="board-content">榜单规则：将昨日国内待映影片，按照之前30天的想看数总量从高到低排列取前10名，每天上午10点更新。相关数据来源于“猫眼电影库”。</p>
 				    </c:when>
 				    <c:when test="${'records' eq requestScope.BOARDNO}">
                 		<p class="board-content">榜单规则：将昨日国内热映的影片，按照昨日票房从高到低排列，每天上午10点更新。相关数据来源于“猫眼专业版”。</p>

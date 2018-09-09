@@ -312,17 +312,17 @@
 			<% for(Cinema cinema: cinemaList) {%>
             <div class="cinema-cell">
                 <div class="cinema-info">
-                    <a href="/cinema/14443?poi=80175518" class="cinema-name" data-act="cinema-name-click" data-bid="b_4tkpau4m" data-val="{city_id: 547, cinema_id: 14443}"><%=cinema.getCinemaName() %></a>
+                    <a href="CinemaCtrl" class="cinema-name" data-act="cinema-name-click" data-bid="b_4tkpau4m" data-val="{city_id: 547, cinema_id: 14443}"><%=cinema.getCinemaName() %></a>
                     <p class="cinema-address"><%=cinema.getAddress() %></p>
                 </div>
 
                 <div class="buy-btn">
-                    <a href="/cinema/14443?poi=80175518" data-act="buy-btn-click" data-val="{city_id: 547, cinema_id: 14443}" data-bid="b_4tkpau4m">选座购票</a>
+                    <a href="CinemaCtrl" data-act="buy-btn-click" data-val="{city_id: 547, cinema_id: 14443}" data-bid="b_4tkpau4m">选座购票</a>
                 </div>
 
                 <div class="price">
                     <span class="rmb red">￥</span>
-                    <span class="price-num red"><span class="stonefont"><%=cinema.getMinPrice() %></span></span>
+                    <span class="price-num red"><span class="stonefont">32.0</span></span>
                     <span>起</span>
                 </div>
             </div>

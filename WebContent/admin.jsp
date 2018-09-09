@@ -13,6 +13,36 @@
     <link href="${pageContext.request.contextPath }/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath }/css/style.css?v=4.1.0" rel="stylesheet">
+	<script src="${pageContext.request.contextPath }/js/JQuery3.3.1.js"></script>
+	<script type="text/javascript">
+	$(function() {
+		$("#add-movie").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/addMovie.jsp");
+		});
+		$("#show-movie").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showMovie.jsp");
+		});
+		
+		$("#add-cinema").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/addCinema.jsp");
+		});
+		$("#show-cinema").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showCinema.jsp");
+		});
+		$("#show-all-user").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showUser.jsp");
+		});
+		
+		$("#add-admin").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/addAdmin.jsp");
+		});
+		$("#show-admin").click(function(){
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showAdmin.jsp");
+		});
+		
+	});
+	</script>
+
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
     <div id="wrapper">
@@ -40,7 +70,7 @@
                         <span class="ng-scope">分类</span>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="${pageContext.request.contextPath }/QueryOrderCtrl">
+                        <a class="J_menuItem" href="${pageContext.request.contextPath }/AdminCtrl">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">查看订单</span>
                         </a>
@@ -54,10 +84,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="${pageContext.request.contextPath }/addMovie.jsp">添加电影</a>
+                                <a class="J_menuItem" id="add-movie">添加电影</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="${pageContext.request.contextPath }/showMovie.jsp">所有电影</a>
+                                <a class="J_menuItem" id="show-movie">所有电影</a>
                             </li>
 
                         </ul>
@@ -70,19 +100,20 @@
                     <li>
                         <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">电影院</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/addCinema.jsp">添加电影院</a>
+                            <li><a class="J_menuItem" id="add-cinema">添加电影院</a>
                             </li>
-                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/showCinema.jsp">查看电影院</a>
+                            <li><a class="J_menuItem" id="show-cinema">查看电影院</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">用户</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/QueryUserCtrl">查看所有用户</a>
+                            <li><a class="J_menuItem" id="show-all-user">查看所有用户</a>
                             </li>
                         </ul>
                     </li>
+
                     <li class="line dk"></li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
                         <span class="ng-scope">分类</span>
@@ -90,13 +121,14 @@
                     <li>
                         <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">管理员</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/addAdmin.jsp">添加管理员</a>
+                            <li><a class="J_menuItem" id="add-admin">添加管理员</a>
                             </li>
-                            <li><a class="J_menuItem" href="${pageContext.request.contextPath }/showAdmin.jsp">查看管理员</a>
+                            <li><a class="J_menuItem" id="show-admin">查看管理员</a>
                             </li>
                         </ul>
                     </li>
                     <li class="line dk"></li>
+
                 </ul>
             </div>
         </nav>
@@ -122,6 +154,7 @@
         <!--右侧部分结束-->
     </div>
     <!-- 全局js -->
+    
     <script src="${pageContext.request.contextPath }/js/jquery.min.js?v=2.1.4"></script>
     <script src="${pageContext.request.contextPath }/js/bootstrap.min.js?v=3.3.6"></script>
     <script src="${pageContext.request.contextPath }/js/plugins/metisMenu/jquery.metisMenu.js"></script>
@@ -129,7 +162,7 @@
     <script src="${pageContext.request.contextPath }/js/plugins/layer/layer.min.js"></script>
     <!-- 自定义js -->
     <script src="${pageContext.request.contextPath }/js/hAdmin.js?v=4.1.0"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/js/index.js"></script>
+    <%-- <script type="text/javascript" src="${pageContext.request.contextPath }/js/index.js"></script> --%>
     <!-- 第三方插件 -->
     <script src="${pageContext.request.contextPath }/js/plugins/pace/pace.min.js"></script>
 </body>

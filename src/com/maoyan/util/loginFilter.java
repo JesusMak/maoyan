@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class loginFilter
  */
-@WebFilter(filterName = "/loginFilter", urlPatterns = "/userJSP/Page/index_log.jsp")
+@WebFilter(filterName = "/loginFilter", urlPatterns = "/index_log.jsp")
 public class loginFilter implements Filter {
 
 	/**
@@ -61,7 +61,7 @@ public class loginFilter implements Filter {
 		// 判断如果没有取到员工信息,就跳转到登陆页面
 		if (phone == null || "".equals(phone)) {
 			// 跳转到登陆页面
-			servletResponse.sendRedirect(servletRequest.getContextPath() + "/userJSP/Page/index_no_log.jsp");
+			servletResponse.sendRedirect("/index_no_log.jsp");
 			// servletResponse.sendRedirect("/JSP/Page/index_no_log.jsp");
 			System.out.println("___判断是否登陆！____");
 		} else {

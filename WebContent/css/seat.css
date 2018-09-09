@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+button, input {
+    overflow: visible;
+}
+
+/*顶部*/
+.header {
+    width: 100%;
+    height: 80px;
+
+}
+a{
+    text-decoration: none;
+}
+/*中间*/
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    top: 80px;
+}
+/*进度条*/
+.order-progress-bar {
+    height: 60px;
+    width: 100%;
+    margin: 40px 0;
+    text-align: center;
+}
+.order-progress-bar .step {
+    float: left;
+    width: 25%;
+}
+.order-progress-bar .done .step-num {
+    background-color: #f03d37;
+}
+.order-progress-bar .step-num {
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #ffd8d7;
+    position: relative;
+    top: 10px;
+}
+.order-progress-bar .done .bar {
+    border-color: #f03d37;
+}
+.order-progress-bar .first .bar {
+    border-left-color: transparent !important;
+}
+.order-progress-bar .bar {
+    width: 0;
+    height: 4px;
+    border-left: 150px solid #ffd8d7;
+    border-right: 150px solid #ffd8d7;
+}
+.order-progress-bar .done .step-text {
+    color: #f03d37;
+}
+.order-progress-bar .step-text {
+    font-size: 14px;
+    color: #999;
+    display: inline-block;
+    margin-top: 10px;
+}
+.order-progress-bar .last .bar {
+    border-right-color: transparent !important;
+}
+/*座位*/
+.main {
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    font-size: 0;
+}
+.hall {
+    width: 820px;
+    display: inline-block;
+    vertical-align: top;
+}
+.hall .seat-example {
+    margin: 30px 0 30px 118px;
+}
+.hall .seat-example .selectable-example {
+    background-image: url('../images/seat1.png');
+}
+.hall .seat-example .example {
+    display: inline-block;
+    font-size: 16px;
+    color: #666;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 38px;
+    background-repeat: no-repeat;
+    margin-right: 50px;
+}
+.hall .seat-example .sold-example {
+    background-image: url('../images/seat2.png');
+}
+.hall .seat-example .selected-example {
+     background-image: url('../images/seat3.png');
+}
+.hall .seat-example .couple-example {
+    padding-left: 77px;
+    background-image: url('../images/seat4.png');
+}
+.seats-block {
+    font-size: 0;
+    overflow: hidden;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+.seats-block .row-id-container {
+    width: 20px;
+    float: left;
+    margin-top: 112px;
+    white-space: normal;
+}
+.seats-block .row-id {
+    font-size: 16px;
+    color: #999;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 20px;
+    height: 26px;
+    line-height: 29px;
+    text-align: center;
+}
+.seats-block .empty-row-id {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+.seats-block .seats-container {
+    margin-left: 50px;
+    overflow: auto;
+    position: relative;
+    padding-top: 112px;
+}
+.seats-block .screen-container {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.seats-block .screen-container .screen {
+    width: 550px;
+    padding-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    background: url("../images/screen-center.png");
+    background-position-x: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+.seats-block .screen-container .c-screen-line {
+    width: 0;
+    border-left: 1px dashed #e5e5e5;
+    position: absolute;
+    top: 90px;
+    bottom: 0;
+    left: 50%;
+}
+.seats-block .seats-wrapper {
+    display: inline-block;
+    min-width: 550px;
+}
+.seats-block .row {
+    white-space: nowrap;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.seats-block .seat.empty {
+    background-image: none;
+}
+.seats-block .seat {
+    display: inline-block;
+    font-size: 0;
+    width: 30px;
+    height: 26px;
+    margin: 0 5px;
+    background:url("../images/seat1.png");
+    background-position: 0 1px;
+}
+.seats-block .seat.sold {
+    background-image:url("../images/seat2.png");
+}
+.seats-block .seat.selected {
+    background-image:url("../images/seat3.png");
+}
+
+/*购票*/
+.side {
+    width: 340px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    display: inline-block;
+}
+.side .movie-info .poster {
+    width: 115px;
+    height: 158px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 7px 0 hsla(0,0%,53%,.5);
+    float: left;
+}
+.side .movie-info .poster img {
+    width: 100%;
+    height: 100%;
+}
+.side .movie-info .content {
+    margin-left: 140px;
+}
+.side .movie-info .content .name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 14px;
+}
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.side .info-item {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+}
+.side .info-item .value {
+    color: #151515;
+    margin-left: 2px;
+}
+.side .show-info {
+    margin-top: 104px;
+}
+.side .show-info .info-item {
+    margin-bottom: 9px;
+}
+.side .show-info .info-item>span {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+}
+.side .show-info .info-item .value {
+    width: 85%;
+}
+.side .show-info .info-item .screen {
+    color: #f03d37;
+}
+.side .ticket-info {
+    padding: 20px 0 10px;
+    border-top: 1px dashed #e5e5e5;
+    border-bottom: 1px dashed #e5e5e5;
+}
+.side .ticket-info .buy-limit {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+.side .ticket-info .no-selected {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin: 28px 0 39px;
+}
+.side .ticket-info .no-selected span {
+    color: #f03d37;
+}
+.side .ticket-info .text {
+    font-size: 14px;
+    color: #999;
+    float: left;
+}
+.side .ticket-info .ticket-container {
+    margin-left: 42px;
+    margin-bottom: 20px;
+    position: relative;
+    top: -5px;
+}
+.side .ticket-info .ticket {
+    cursor: default;
+    position: relative;
+    font-size: 12px;
+    color: #f03d37;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 12px 10px 0;
+    background: url("../images/seleced-seat.png") no-repeat;
+}
+.side .ticket-info .ticket:hover::after {
+    content: "";
+    background: url("../images/close-selected-seat.png") no-repeat;
+    background-size: auto auto;
+    width: 16px;
+    height: 16px;
+    background-size: 16px;
+    position: absolute;
+    top: -7px;
+    right: -7px;
+}
+.side .ticket-info .total-price {
+    font-size: 14px;
+    color: #333;
+}
+.side .ticket-info .total-price .price {
+    color: #f03d37;
+    font-size: 24px;
+}
+.side .confirm-order {
+    padding: 20px 0;
+    text-align: center;
+}
+.side .confirm-order .login-div {
+    display: inline-block;
+    width: 260px;
+}
+
+.side .confirm-order .confirm-btn .orderInfos{
+    color: white;
+    cursor: default;
+    outline: medium;
+    border: none;
+    font-size: 17px;
+}
+.side .confirm-order .confirm-btn.disable {
+    background-color: #dedede;
+    box-shadow: none;
+}
+.side .confirm-order .confirm-btn {
+    cursor: default;
+    width: 260px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 21px;
+    position: relative;
+    left: 50%;
+    margin: 0 0 0 -130px;
+}
+
+/*只能定六张票*/
+.modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,.4);
+}
+.modal-container .modal {
+    width: 460px;
+    height: 155px;
+    padding: 30px 0;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    text-align: center;
+}
+.modal-container .icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background:url("../images/warning.png") no-repeat;
+}
+.modal-container .tip {
+    font-size: 18px;
+    color: blue;
+    margin-bottom: 26px;
+    margin-top: 12px;
+}
+.modal-container .ok-btn {
+    color: #fff;
+    background-color: #f03d37;
+    box-shadow: 0 2px 10px -2px #f03d37;
+}
+.modal-container .btn {
+    border-radius: 100px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    width: 260px;
+    padding: 0;
+    cursor: default;
+}
+.btn {
+    display: inline-block;
+    padding: 2px 15px;
+    line-height: 25px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #df2d2d;
+}
+.no-login {
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin: 10px 0 40px;
+}
+.no-login span {
+    color: #f03d37;
+}
+.side .confirm-order .cellphone {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+.side .confirm-order .cellphone {
+    color: #999;
+    font-size: 14px;
+}
+.side .confirm-order .cellphone .phone-num {
+    color: #151515;
+}
+
+
+/*底部*/
+.footer {
+    background-color: #262426;
+    padding: 56px 0;
+    margin: 0 auto;
+    min-width: 1200px;
+    position: relative;
+    top: 80px;
+}
+.footer p, .footer p a {
+    color: #888;
+}
+.footer p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+}
+.footer .friendly-links a {
+    color: #ef4238;
+}
+.friendly-links span {
+    display: inline-block;
+    border-left: 1px solid #444;
+    margin: 0 7px;
+    height: 12px;
+    position: relative;
+    top: 1px;
+}

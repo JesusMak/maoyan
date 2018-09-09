@@ -1,7 +1,5 @@
 package com.maoyan.bean;
 
-import java.util.Date;
-
 /**
  * 电影实体类
  * 
@@ -26,7 +24,7 @@ public class Movie {
 	// 评分
 	private double grade;
 	// 上映时间
-	private Date time;
+	private String time;
 	// 是否上映
 	private boolean onShow;
 	// 电影时长
@@ -162,11 +160,11 @@ public class Movie {
 		this.grade = grade;
 	}
 
-	public Date getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 

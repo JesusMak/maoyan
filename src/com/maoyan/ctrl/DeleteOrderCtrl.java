@@ -44,11 +44,10 @@ public class DeleteOrderCtrl extends HttpServlet {
 			throws ServletException, IOException {
 
 		String orderId = request.getParameter("orderid");
-		System.out.println(orderId);
 		// 删除订单
 		DeleteOrderService.getDeleteOrderService().deleteOrder(orderId);
 
-		response.sendRedirect("/maoyan/MyOrderCtrl");
+		request.getRequestDispatcher("/MyOrderCtrl").forward(request, response);
 	}
 
 }

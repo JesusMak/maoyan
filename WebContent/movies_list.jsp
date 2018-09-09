@@ -685,7 +685,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="movie-index">
                     <p class="movie-index-title">想看数</p>
                     <div class="movie-index-content score normal-score">
-                        <span class="index-left info-num one-line"><span class="stonefont"></span></span>
+                        <span class="index-left info-num one-line"><span class="stonefont">15.6亿</span></span>
                     </div>
                 </div>
 
@@ -854,11 +854,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <div class="main">
                                                 <div class="main-header clearfix">
                                                     <div class="user">
-                                                        <span class="name">美比特</span>
+                                                        <span class="name">${comment.userName}</span>
 
                                                     </div>
-                                                    <div class="time" title="2017-05-02 14:54:21">
-                                                        <span title="2017-05-02 14:54:21">2017-05-02</span>
+                                                    <div class="time" title="${comment.commentTime}">
+                                                        <span title="${comment.commentTime}">${comment.commentTime}</span>&nbsp;&nbsp;<span style="color:red;font-size:18px">${comment.grade}</span>
                                                         <!--<ul class="score-star clearfix" data-score="10">-->
                                                             <!--<li>-->
                                                                 <!--<i class="half-star left active"></i><i class="half-star right active"></i>    </li>-->
@@ -874,10 +874,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                                                     </div>
                                                     <div class="approve " data-id="104863626">
-                                                        <i data-act="comment-approve-click" class="approve-icon"></i><span class="num">3278</span>
+                                                        <i data-act="comment-approve-click" class="approve-icon"></i><span class="num">${comment.approve}</span> 
                                                     </div>
                                                 </div>
-                                                <div class="comment-content">${comment.remark}</div>
+                                                <div class="comment-content">${comment.content}</div>
                                             </div>
                                         </li>
                                   </c:forEach>     
@@ -1099,7 +1099,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <div id="comment-form-container" class="jBox-wrapper jBox-Modal jBox-Default" style="position: fixed; display: none; opacity: 1; z-index: 10000; left: 50%; top: 50%; margin-left: -285px; margin-top: -235px;"><div class="jBox-container"><div class="jBox-content" style="width: 550px; height: 450px;">
-    <form id="comment-form">
+    <form id="comment-form" action="commentCtrl" method="post">
         <div class="score-msg-container">
            
             <select name="grade">
@@ -1116,14 +1116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             </select>
             
-             <select name="remark">
-                <option value ="超烂的">超烂的</option>
-                <option value ="超烂的">一般般</option>
-                <option value="一般般">还不错</option>
-                <option value="非常好">非常好</option>
-                <option value="完美">完美</option>
-               
-            </select>
+            
         </div>
         <div class="score-star-contaienr">
             <ul class="score-star clearfix">
@@ -1145,6 +1138,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <span class="word-count-info"></span>
         </div>
         <input type="hidden" name="score" value="0">
+        <input type="hidden" name="time" value="<%=new java.sql.Timestamp(System.currentTimeMillis()).toString().substring(0, 10) %>">
+    	<span><%=new java.sql.Timestamp(System.currentTimeMillis()).toString().substring(0, 10) %></span>
         <input class="btn disabled" type="submit" value="提交" data-act="comment-submit-click">
     </form>
     <div class="close">×</div>

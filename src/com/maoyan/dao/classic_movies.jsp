@@ -593,7 +593,7 @@
 
         <div class="user-info">
             <div class="user-avatar J-login">
-                <img src="../images/7dd82a16316ab32c8359debdb04396ef2897.png">
+                <img src="images/7dd82a16316ab32c8359debdb04396ef2897.png">
                 <span class="caret"></span>
                 <ul class="user-menu">
                     <li>
@@ -631,7 +631,7 @@
 <div class="subnav">
     <ul class="navbar">
         <li><a href="play_now.jsp">正在热映</a></li>
-        <li><a href="coming_soon.jsp">即将上映</a></li>
+        <li><a href="movieCtrl">即将上映</a></li>
         <li><a class="active">经典影片</a></li>
     </ul>
 </div>
@@ -862,12 +862,7 @@
                         </li>
                     </ul>
                 </div>
-                <!--<div class="play-sorter">-->
-                <!--<span class="sort-control-group" data-act="isplay-click" data-val="{isplay:1}" data-href="?isPlay=1" onclick="location.href=this.getAttribute('data-href')">-->
-                <!--<span class="sort-control sort-checkbox"></span>-->
-                <!--<span class="sort-control-label">可播放</span>-->
-                <!--</span>-->
-                <!--</div>-->
+               
             </div>
             <div class="movies-list">
 
@@ -876,8 +871,8 @@
                         <div class="movie-item">
                             <a href="/films/246596" target="_blank" data-act="movie-click" data-val="{movieid:246596}">
                                 <div class="movie-poster">
-                                    <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                    <img src="../images/742e20f7a21c7c6f426d3b278ece3a243774480.jpg@160w_220h_1e_1c">
+                                    <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                    <img src="images/742e20f7a21c7c6f426d3b278ece3a243774480.jpg@160w_220h_1e_1c">
                                 </div>
                             </a>
 
@@ -892,8 +887,8 @@
                     <div class="movie-item">
                         <a href="/films/1229214" target="_blank" data-act="movie-click" data-val="{movieid:1229214}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/808c13573707a7414224bb1a28fde34b853667.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/808c13573707a7414224bb1a28fde34b853667.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -908,8 +903,8 @@
                     <div class="movie-item">
                         <a href="/films/343208" target="_blank" data-act="movie-click" data-val="{movieid:343208}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/7a2c3acb1bda2baad8df309b046d0872344909.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/7a2c3acb1bda2baad8df309b046d0872344909.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -927,8 +922,8 @@
                     <div class="movie-item">
                         <a href="/films/344450" target="_blank" data-act="movie-click" data-val="{movieid:344450}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/eed97cfe2718d28d688615830856d07b226733.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/eed97cfe2718d28d688615830856d07b226733.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -943,8 +938,8 @@
                     <div class="movie-item">
                         <a href="/films/1216446" target="_blank" data-act="movie-click" data-val="{movieid:1216446}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/c2abb511598ee1b00237215a3396770c309005.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/c2abb511598ee1b00237215a3396770c309005.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -962,8 +957,8 @@
                     <div class="movie-item">
                         <a href="/films/341737" target="_blank" data-act="movie-click" data-val="{movieid:341737}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/53e39ceee7bfbada4dc89bd93bbd334b198786.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/53e39ceee7bfbada4dc89bd93bbd334b198786.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -981,8 +976,8 @@
                     <div class="movie-item">
                         <a href="/films/343873" target="_blank" data-act="movie-click" data-val="{movieid:343873}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/95542e72e8b71ba8d396ad0a65a57f0e4644606.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/95542e72e8b71ba8d396ad0a65a57f0e4644606.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -997,8 +992,8 @@
                     <div class="movie-item">
                         <a href="/films/248162" target="_blank" data-act="movie-click" data-val="{movieid:248162}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/96c004133cab57fa8cd2f35ca9a8ae8c1023915.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/96c004133cab57fa8cd2f35ca9a8ae8c1023915.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -1016,8 +1011,8 @@
                     <div class="movie-item">
                         <a href="/films/343499" target="_blank" data-act="movie-click" data-val="{movieid:343499}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/b466812aec8187e2c7a2c3b0ed4024574165570.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/b466812aec8187e2c7a2c3b0ed4024574165570.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1032,8 +1027,8 @@
                     <div class="movie-item">
                         <a href="/films/1218190" target="_blank" data-act="movie-click" data-val="{movieid:1218190}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/091f305b0a415080d5cb3a0a470d0763431429.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/091f305b0a415080d5cb3a0a470d0763431429.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -1051,8 +1046,8 @@
                     <div class="movie-item">
                         <a href="/films/342166" target="_blank" data-act="movie-click" data-val="{movieid:342166}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/653e8e53c9a4e068d2a2e88509ac864e966198.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/653e8e53c9a4e068d2a2e88509ac864e966198.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1067,8 +1062,8 @@
                     <div class="movie-item">
                         <a href="/films/1219932" target="_blank" data-act="movie-click" data-val="{movieid:1219932}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/a8683adce591ffb227836c0dacc74b48264511.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/a8683adce591ffb227836c0dacc74b48264511.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1083,8 +1078,8 @@
                     <div class="movie-item">
                         <a href="/films/334625" target="_blank" data-act="movie-click" data-val="{movieid:334625}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/eb84ba313a5e77ebe7148d3ad7cfaf241855793.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/eb84ba313a5e77ebe7148d3ad7cfaf241855793.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -1102,8 +1097,8 @@
                     <div class="movie-item">
                         <a href="/films/343070" target="_blank" data-act="movie-click" data-val="{movieid:343070}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/830459ae19f5cacac0dd21dba56caf031867206.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/830459ae19f5cacac0dd21dba56caf031867206.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -1121,8 +1116,8 @@
                     <div class="movie-item">
                         <a href="/films/1217966" target="_blank" data-act="movie-click" data-val="{movieid:1217966}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/01f9953ad81492378746e8a762be3196233628.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/01f9953ad81492378746e8a762be3196233628.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1137,8 +1132,8 @@
                     <div class="movie-item">
                         <a href="/films/248907" target="_blank" data-act="movie-click" data-val="{movieid:248907}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/37b48c6684b585fd837ed4a348d159bc976986.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/37b48c6684b585fd837ed4a348d159bc976986.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
                         <div class="channel-action channel-action-pre">
@@ -1156,8 +1151,8 @@
                     <div class="movie-item">
                         <a href="/films/493549" target="_blank" data-act="movie-click" data-val="{movieid:493549}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/b3b2cd95cbe16c89c63b4b54db1bc765190928.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/b3b2cd95cbe16c89c63b4b54db1bc765190928.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1172,8 +1167,8 @@
                     <div class="movie-item">
                         <a href="/films/249165" target="_blank" data-act="movie-click" data-val="{movieid:249165}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/ce5438365952eb66c8ef607a29aef9352453261.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/ce5438365952eb66c8ef607a29aef9352453261.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1188,8 +1183,8 @@
                     <div class="movie-item">
                         <a href="/films/1203437" target="_blank" data-act="movie-click" data-val="{movieid:1203437}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/c9474540c11d93e0f8d030d0e0aea0907428783.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/c9474540c11d93e0f8d030d0e0aea0907428783.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1204,8 +1199,8 @@
                     <div class="movie-item">
                         <a href="/films/1141500" target="_blank" data-act="movie-click" data-val="{movieid:1141500}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/cf27cea176cfb9963c9fda8b096b7e4786486.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/cf27cea176cfb9963c9fda8b096b7e4786486.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1220,8 +1215,8 @@
                     <div class="movie-item">
                         <a href="/films/1218091" target="_blank" data-act="movie-click" data-val="{movieid:1218091}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/e3de59643ca83805ba43c6bdf2c2e4415314350.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/e3de59643ca83805ba43c6bdf2c2e4415314350.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1236,8 +1231,8 @@
                     <div class="movie-item">
                         <a href="/films/1207260" target="_blank" data-act="movie-click" data-val="{movieid:1207260}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/d615eb701953f795a4b0912fe6e1b49a919326.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/d615eb701953f795a4b0912fe6e1b49a919326.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1252,8 +1247,8 @@
                     <div class="movie-item">
                         <a href="/films/1203575" target="_blank" data-act="movie-click" data-val="{movieid:1203575}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/76c660b123c9c1456f0e32178122d0f77783022.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/76c660b123c9c1456f0e32178122d0f77783022.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1268,8 +1263,8 @@
                     <div class="movie-item">
                         <a href="/films/1217402" target="_blank" data-act="movie-click" data-val="{movieid:1217402}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/081068635bc11107ba0dd37536c7b8761049155.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/081068635bc11107ba0dd37536c7b8761049155.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1284,8 +1279,8 @@
                     <div class="movie-item">
                         <a href="/films/1196151" target="_blank" data-act="movie-click" data-val="{movieid:1196151}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/4fc5d71927f830846d9158f630fae2f24450601.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/4fc5d71927f830846d9158f630fae2f24450601.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1300,8 +1295,8 @@
                     <div class="movie-item">
                         <a href="/films/1218029" target="_blank" data-act="movie-click" data-val="{movieid:1218029}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/8e438e646b727e55a4eac0f8aef866831508133.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/8e438e646b727e55a4eac0f8aef866831508133.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1316,8 +1311,8 @@
                     <div class="movie-item">
                         <a href="/films/248906" target="_blank" data-act="movie-click" data-val="{movieid:248906}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/97665f5c5e1e3fdb5ef75dd80d2fd8a2384493.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/97665f5c5e1e3fdb5ef75dd80d2fd8a2384493.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1332,8 +1327,8 @@
                     <div class="movie-item">
                         <a href="/films/345655" target="_blank" data-act="movie-click" data-val="{movieid:345655}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/7cd4fd40a34a7b49c697280db1e7048b2529049.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/7cd4fd40a34a7b49c697280db1e7048b2529049.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1348,8 +1343,8 @@
                     <div class="movie-item">
                         <a href="/films/569712" target="_blank" data-act="movie-click" data-val="{movieid:569712}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/5e167f3334700264f19a1c47ca4a012912655725.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/5e167f3334700264f19a1c47ca4a012912655725.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 
@@ -1364,8 +1359,8 @@
                     <div class="movie-item">
                         <a href="/films/332023" target="_blank" data-act="movie-click" data-val="{movieid:332023}">
                             <div class="movie-poster">
-                                <img class="poster-default" src="../images/loading_2.e3d934bf.png">
-                                <img src="../images/d0c6702c10eeaa53d77fb2524686cb71208605.jpg@160w_220h_1e_1c">
+                                <img class="poster-default" src="images/loading_2.e3d934bf.png">
+                                <img src="images/d0c6702c10eeaa53d77fb2524686cb71208605.jpg@160w_220h_1e_1c">
                             </div>
                         </a>
 

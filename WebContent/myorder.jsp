@@ -238,7 +238,7 @@
                 <div class="user-profile-nav">
                     <h1>个人订单</h1>
                     <a class="order active" href="">我的订单</a>
-                    <a class="profile" href="">基本信息</a>
+                    <a class="profile" href="profile.jsp">基本信息</a>
                 </div>
                 <div class="order-container">
                     <div class="profile-title">我的订单</div>
@@ -247,8 +247,23 @@
                     	<div class="order-box">
 	                        <div class="order-header">
 	                            <span class="order-date">${orl.time }</span>
-	                            <span class="order-id"> 猫眼订单号:${orl.orderId }</span>
+	                            <span class="order-id"> 猫眼订单号:<span class="delete_id">${orl.orderId }</span></span>
 	                            <span class="del-order"></span>
+	                            
+				                    <div class="modal-container" style="display: none;">
+			    						<div class="modal">
+				      						<span class="icon"></span>
+				     						<p class="tip">您确定要删除该订单嘛？删除后，不可恢复～</p>
+				     						
+				     						<form action="${pageContext.request.contextPath }/DeleteOrderCtrl" method="post">
+				     							<input type="hidden" name="orderid" class="delete_input" value=""/>
+				     							<input type="submit" class="short btn ok-btn" name="" value="确定"/>
+				     							<div class="short btn cancel-btn">取消</div>
+				     						</form>
+				     						
+			    						</div>
+			  						</div>
+	                            
 	                        </div>
 	                        <div class="order-body">
 	                            <div class="poster">
@@ -270,21 +285,6 @@
 	                            </div>
 	                        </div>
                     	</div>
-                    	
-                    	<div class="modal-container" style="display: none;">
-    						<div class="modal">
-	      						<span class="icon"></span>
-	     						<p class="tip">您确定要删除该订单嘛？删除后，不可恢复～</p>
-	     						
-	     						<form action="${pageContext.request.contextPath }/DeleteOrderCtrl" method="post">
-	     							<input type="hidden" name="orderid" value="${orl.orderId }"/>
-	     							<input type="submit" class="short btn ok-btn" name="" value="确定"/>
-	     							<div class="short btn cancel-btn">取消</div>
-	     						</form>
-	     						
-						        
-    						</div>
-  						</div>
                     	
                     </c:forEach>
                 </div>

@@ -652,12 +652,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="header-placeholder"></div>
 
-<!--导航栏-->
+
 
 <div class="subnav">
     <ul class="navbar">
         <li><a href="play_now.jsp">正在热映</a></li>
-        <li><a class="active" href="coming_soon">即将上映</a></li>
+        <li><a class="active">即将上映</a></li>
         <li><a href="classic_movies.jsp">经典影片</a></li>
     </ul>
 </div>
@@ -903,9 +903,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="movie-ver"></div>
                         </div>
                         <div class="channel-detail movie-item-title" title="昨日青空">
-                            <a href="movies_list.jsp" target="_blank">${movie.movieName }</a>
+                            <a href="queryCommentCtrl" target="_blank">${movie.movieName }</a>
                         </div>
-                        <div class="channel-detail channel-detail-prescore">点映评分<i class="integer">8.</i><i class="fraction">7</i></div>
+                        <div class="channel-detail channel-detail-prescore">点映评分<i class="integer">${movie.grade}</i></div>
 
                     </dd>
                 </c:forEach>

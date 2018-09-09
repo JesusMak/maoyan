@@ -1,7 +1,5 @@
 package com.maoyan.bean;
 
-import java.util.Date;
-
 /**
  * �û���
  * 
@@ -18,7 +16,9 @@ public class User {
 	// 性别
 	private String sex;
 	// 生日
-	private Date birthday;
+	private String year;
+	private String month;
+	private String day;
 	// 工作
 	private String job;
 	// 爱好
@@ -26,7 +26,7 @@ public class User {
 	// 头像
 	private String header;
 	// 用户头像
-	private byte[] head;
+	private String head;
 	// 余额
 	private double balance;
 	// 个性签名
@@ -34,11 +34,11 @@ public class User {
 	// 用户婚姻状态
 	private String status;
 
-	public byte[] getHead() {
+	public String getHead() {
 		return head;
 	}
 
-	public void setHead(byte[] head) {
+	public void setHead(String head) {
 		this.head = head;
 	}
 
@@ -90,12 +90,28 @@ public class User {
 		this.sex = sex;
 	}
 
-	public Date getBirthday() {
-		return birthday;
+	public String getYear() {
+		return year;
 	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
 	}
 
 	public String getJob() {

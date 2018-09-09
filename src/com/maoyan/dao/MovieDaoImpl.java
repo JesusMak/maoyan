@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import com.maoyan.bean.Comment;
@@ -63,6 +64,7 @@ public class MovieDaoImpl {
 
 	public List<Movie> queryMovieBoard(String boardNo, int pageSize, int pageNow) {
 		List<Movie> movieList = new ArrayList<Movie>();
+		Connection connMysql = DBUtil.getConnetion();
 		PreparedStatement pstmt = null;
 		System.out.println(boardNo);
 		try {
@@ -93,7 +95,7 @@ public class MovieDaoImpl {
 				movie.setType(rs.getString("type"));
 				movie.setArea(rs.getString("area"));
 				movie.setGrade(rs.getDouble("grade"));
-				movie.setTime(rs.getDate("time"));
+				movie.setTime(rs.getString("time"));
 				movie.setOnShow(rs.getBoolean("on_show"));
 				movie.setMovieLong(rs.getString("movie_long"));
 				movie.setRecords(rs.getDouble("records"));
@@ -131,7 +133,7 @@ public class MovieDaoImpl {
 				movie.setType(rs.getString("type"));
 				movie.setArea(rs.getString("area"));
 				movie.setGrade(rs.getFloat("grade"));
-				movie.setTime(rs.getDate("time"));
+				movie.setTime(rs.getString("time"));
 				movie.setOnShow(rs.getBoolean("on_show"));
 				movie.setMovieLong(rs.getString("movie_long"));
 				movie.setRecords(rs.getInt("records"));
@@ -167,15 +169,16 @@ public class MovieDaoImpl {
 		return movieList;
 	}
 
-	// 冼世达
 	public void addComments(Comment c) throws SQLException {
 		Connection conn = DBUtil.getConnetion();
-		PreparedStatement ptmt = conn.prepareStatement("insert into comment(grade,remark) values(?,?)");
+		PreparedStatement ptmt = conn.prepareStatement("insert into comment values(?,?,?,?,0)");
 
-		ptmt.setString(1, c.getGrade());
-		ptmt.setString(2, c.getRemark());
-		// ptmt.setString(2, c.getContent());
-
+		String time = String.valueOf(Calendar.getInstance());
+		ptmt.setString(1, c.getUserName());
+		ptmt.setString(2, c.getGrade());
+		ptmt.setString(3, c.getCommentTime());
+		ptmt.setString(4, c.getContent());
+		// ptmt.setInt(5, 0);
 		ptmt.execute();
 	}
 
@@ -190,9 +193,12 @@ public class MovieDaoImpl {
 			while (rs.next()) {
 				Comment ct = new Comment();
 
+				ct.setUserName(rs.getString("user_name"));
 				ct.setGrade(rs.getString("grade"));
-				ct.setRemark(rs.getString("remark"));
+				// ct.setRemark(rs.getString("remark"));
+				ct.setCommentTime(rs.getString("comment_time"));
 				ct.setContent(rs.getString("content"));
+				ct.setApprove(rs.getInt("approve"));
 
 				movieList.add(ct);
 			}
@@ -218,7 +224,7 @@ public class MovieDaoImpl {
 				mv.setType(rs.getString("type"));
 				mv.setActor(rs.getString("actor"));
 				mv.setGrade(rs.getDouble("grade"));
-				mv.setTime(rs.getTime("time"));
+				mv.setTime(rs.getString("time"));
 				mv.setOnShow(rs.getBoolean("on_show"));
 				mv.setMovieLong(rs.getString("movie_long"));
 				mv.setRecords(rs.getDouble("records"));
@@ -251,20 +257,16 @@ public class MovieDaoImpl {
 			if (rs.next()) {
 				rowCount = rs.getInt(1);
 			}
-
 			// ����pageCount
 			if (rowCount % pageSize == 0) {
 				pageCount = rowCount / pageSize;
 			} else {
 				pageCount = rowCount / pageSize + 1;
 			}
-
 			// д��ҳ��ѯ�����
-			pstm = conn.prepareStatement("select * from 	movie limit ?,?");
-
+			pstm = conn.prepareStatement("select * from movie limit ?,?");
 			pstm.setInt(1, pageSize * (pageNow - 1));
 			pstm.setInt(2, pageSize);
-
 			rs = pstm.executeQuery();
 			Movie mv = null;
 			while (rs.next()) {
@@ -276,16 +278,14 @@ public class MovieDaoImpl {
 				mv.setType(rs.getString("type"));
 				mv.setActor(rs.getString("actor"));
 				mv.setGrade(rs.getDouble("grade"));
-				mv.setTime(rs.getTime("time"));
+				mv.setTime(rs.getString("time"));
 				mv.setOnShow(rs.getBoolean("on_show"));
 				mv.setMovieLong(rs.getString("movie_long"));
 				mv.setRecords(rs.getDouble("records"));
 				mv.setLike(rs.getInt("movie_like"));
 				mv.setComment(rs.getString("comment"));
-
 				movieList.add(mv);
 			}
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

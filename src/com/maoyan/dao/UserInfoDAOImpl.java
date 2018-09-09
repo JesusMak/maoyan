@@ -1,7 +1,6 @@
 package com.maoyan.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,10 +36,12 @@ public class UserInfoDAOImpl {
 				user.setUserName(rs.getString("user_name"));
 				user.setPassword(rs.getString("password"));
 				user.setSex(rs.getString("sex"));
-				user.setBirthday(rs.getDate("birthday"));
+				user.setYear(rs.getString("year"));
+				user.setMonth(rs.getString("month"));
+				user.setDay(rs.getString("day"));
 				user.setJob(rs.getString("job"));
 				user.setHobby(rs.getString("hobby"));
-				user.setHead(rs.getBytes("head"));
+				user.setHead(rs.getString("head"));
 				user.setBalance(rs.getFloat("balance"));
 				userList.add(user);
 			}
@@ -55,9 +56,9 @@ public class UserInfoDAOImpl {
 	}
 
 	public List<User> queryUserById(String user_phone) {
-		List<User> userList = new ArrayList();
+		List<User> userList = new ArrayList<User>();
 		Connection conn = DBUtil.getConnetion();
-		String sql = "select user_name,sex,birthday,status,job,hobby from user where user_phone=?";
+		String sql = "select user_name,sex,year,month,day,status,job,hobby from user where user_phone=?";
 		PreparedStatement pstmt;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -66,7 +67,9 @@ public class UserInfoDAOImpl {
 			User user = new User();
 			user.setUserName(rs.getString("user_name"));
 			user.setSex(rs.getString("sex"));
-			user.setBirthday(rs.getDate("birthday"));
+			user.setYear(rs.getString("year"));
+			user.setMonth(rs.getString("month"));
+			user.setDay(rs.getString("day"));
 			user.setStatus(rs.getString("status"));
 			user.setJob(rs.getString("job"));
 			user.setHobby(rs.getString("hobby"));
@@ -86,7 +89,9 @@ public class UserInfoDAOImpl {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user.getUserName());
 			pstmt.setString(2, user.getSex());
-			pstmt.setDate(3, new Date(user.getBirthday().getTime()));
+			pstmt.setString(3, user.getYear());
+			pstmt.setString(4, user.getMonth());
+			pstmt.setString(5, user.getDay());
 			pstmt.setString(4, user.getStatus());
 			pstmt.setString(5, user.getJob());
 			pstmt.setString(6, user.getHobby());
@@ -124,10 +129,12 @@ public class UserInfoDAOImpl {
 			pstmt.setString(2, user.getUserName());
 			pstmt.setString(3, user.getPassword());
 			pstmt.setString(4, user.getSex());
-			pstmt.setDate(5, new Date(user.getBirthday().getTime()));
+			pstmt.setString(5, user.getYear());
+			pstmt.setString(6, user.getMonth());
+			pstmt.setString(7, user.getDay());
 			pstmt.setString(6, user.getJob());
 			pstmt.setString(7, user.getHobby());
-			pstmt.setBytes(8, user.getHead());
+			pstmt.setString(10, user.getHead());
 			pstmt.setFloat(9, (float) user.getBalance());
 
 			pstmt.execute();
@@ -143,7 +150,7 @@ public class UserInfoDAOImpl {
 		PreparedStatement pstmt;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setBytes(1, user.getHead());
+			pstmt.setString(1, user.getHead());
 			pstmt.setString(2, user_phone);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {

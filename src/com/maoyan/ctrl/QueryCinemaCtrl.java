@@ -65,7 +65,7 @@ public class QueryCinemaCtrl extends HttpServlet {
 		request.setAttribute("PAGE_COUNT", CinemaDaoImpl.getCinemaDaoImpl().pageCount);
 		request.setAttribute("TAGNAME", tagName);
 
-		request.getRequestDispatcher("page/cinemas.jsp").forward(request, response);
+		request.getRequestDispatcher("cinemas.jsp").forward(request, response);
 	}
 
 }

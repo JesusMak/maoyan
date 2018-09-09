@@ -19,35 +19,45 @@ import com.maoyan.service.MyOrderService;
 @WebServlet("/MyOrderCtrl")
 public class MyOrderCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MyOrderCtrl() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MyOrderCtrl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//获取订单信息集合
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// 获取订单信息集合
 		List<Order> orderList = MyOrderService.getMyOrderService().lookMyOrder();
-		
+
+		for (Order order : orderList) {
+
+		}
+
 		HttpSession session = request.getSession();
 		session.setAttribute("orderList", orderList);
-		
+
 		request.getRequestDispatcher("/myorder.jsp").forward(request, response);
-		
+
 	}
 
 }

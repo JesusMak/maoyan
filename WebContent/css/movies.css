@@ -1,0 +1,687 @@
+body {
+    font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+div {
+    display: block;
+}
+.header{
+    width:100%;
+    /*border: 1px solid black;*/
+    background-color: #fff;
+    top: 0;
+    position: fixed;
+    min-width: 1200px;
+    border-bottom: 1px solid #d8d8d8;
+    z-index: 999;
+}
+.header .header-inner {
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto;
+}
+.header .nav .navbar li {
+    float: left;
+}
+.header .logo {
+    width: 133px;
+    height: 80px;
+    float: left;
+    background: url('../images/data_image_png_base.png') no-repeat 0;
+    background-size: contain;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+img {
+    border-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.city-container {
+    position: relative;
+    float: left;
+    margin: 0 8px;
+    height: 100%;
+}
+.city-container .city-selected {
+    cursor: pointer;
+    height: 100%;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    border-width: 0 1px;
+    z-index: 101;
+}
+.city-selected:hover {
+    border-left: 1px solid #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: transparent;
+
+}
+.city-container .city-name {
+    display: inline-block;
+    margin-top: 32px;
+    color: #333;
+}
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 5px solid #666;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    transition: all .2s ease;
+}
+.caretup {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-bottom: 5px solid #666;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    transition: all .2s ease;
+}
+.city-container .city-list {
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    position: absolute;
+    z-index: 100;
+    width: 478px;
+    height: 330px;
+    overflow-y: scroll;
+    top: 80px;
+    display: none;
+}
+.city-container .city-list .city-list-header {
+    padding-left: 20px;
+    line-height: 58px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+.city-container .city-list .city-list-header a {
+    cursor: pointer;
+}
+.city-container .city-list ul li {
+    line-height: 30px;
+}
+.city-container .city-list ul li span {
+    margin-left: 20px;
+    width: 20px;
+    text-align: center;
+    float: left;
+    vertical-align: top;
+    display: block;
+    background-color: #eee;
+    font-weight: 700;
+    line-height: 20px;
+    margin-top: 5px;
+}
+.city-container .city-list ul li div {
+    margin-left: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+.city-container .city-list ul li div a {
+    display: inline-block;
+    line-height: 24px;
+    margin-top: 3px;
+    padding: 0 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header .nav {
+    display: inline-block;
+    background-color: #fff;
+    margin-left: 40px;
+}
+.header ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
+}
+
+.header .nav .navbar li a{
+    text-align: center;
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    width: 80px;
+    font-size: 18px;
+    color: #333;
+}
+.header .nav .navbar li a.active{
+    color: #fff;
+    background-color: #ef4238;
+}
+
+
+.header .user-info {
+    float: right;
+    position: relative;
+    z-index: 9999;
+    height: 100%;
+}
+.header .user-info .user-avatar {
+    display: block;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: none;
+    padding: 0 10px;
+    width: 56px;
+    height: 100%;
+}
+.header .user-info .user-avatar img {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.header .user-info .user-avatar .caret {
+    position: absolute;
+    top: 39px;
+    right: 10px;
+}
+.header .user-info .user-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    border: 1px solid #d8d8d8;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+    padding: 15px 26px 5px;
+    text-align: center;
+}
+.header .user-info .user-menu li {
+    margin-bottom: 6px;
+}
+.header .user-info .user-menu li>a {
+    color: #999;
+    display: block;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.header form {
+    float: right;
+    margin: 20px 10px 0 0;
+    position: relative;
+}
+form {
+    display: block;
+}
+.header form .search {
+    display: inline-block;
+    height: 40px;
+    line-height: 1.2;
+    width: 260px;
+    padding: 0 40px 0 20px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 30px;
+    background-color: #faf8fa;
+    overflow: hidden;
+    color: #333;
+}
+.header form input {
+    box-sizing: border-box;
+}
+.header form .submit {
+    display: inline-block;
+    position: absolute;
+    left: 220px;
+    top: 0;
+    height: 40px;
+    width: 40px;
+    background-color: #ef4238;
+    border-radius: 30px;
+    background-image: url("../images/data_image_png_base%20(2).png");
+
+    cursor: pointer;
+}
+.header input {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: none;
+}
+.app-download {
+    float: right;
+    width: 132px;
+    height: 80px;
+    margin-left: 10px;
+    position: relative;
+}
+.app-download a {
+    display: block;
+    padding-top: 28px;
+    padding-left: 14px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    float: left;
+}
+.app-download a .iphone-icon {
+    float: left;
+    display: inline-block;
+    width: 15px;
+    height: 24px;
+    background-image: url('../images/data_image_png_base(1).png');
+    background-size: cover;
+}
+.app-download a .apptext {
+    float: left;
+    display: inline-block;
+    font-size: 16px;
+    color: #000;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 7px;
+}
+.app-download a .caret {
+    float: left;
+    position: relative;
+    top: 8px;
+}
+.app-download a .download-icon {
+    display: none;
+    width: 130px;
+    height: 165px;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    background-color: red;
+    background: url("../images/app-link-icon.3bc8fd38f5eb0cfcf9909122baaaa720.png");
+    background-position: 24px 14px;
+    background-size: 82px 82px;
+    background-repeat: no-repeat;
+    border: 1px solid #dcd4d7;
+    border-top: 0;
+    z-index: 999999;
+}
+.app-download a .download-icon .down-title {
+    margin-top: 115px;
+    margin-bottom: 3px;
+    color: #000;
+}
+.app-download a .download-icon p {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.app-download  a .download-icon p {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+.header-placeholder {
+    height: 73px;
+}
+
+.subnav {
+    width: 100%;
+    height: 60px;
+    min-width: 1200px;
+    text-align: center;
+    background-color: #47464a;
+}
+.subnav .navbar {
+    display: inline-block;
+    overflow: hidden;
+}
+.subnav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.subnav .navbar li {
+    display: inline-block;
+    float: left;
+}
+.subnav .navbar li .active {
+    color: #df4238;
+    position: relative;
+    cursor: default;
+}
+.subnav .navbar li a {
+    display: block;
+    font-size: 16px;
+    height: 60px;
+    color:#999;
+    line-height: 60px;
+    padding: 0 40px;
+}
+.subnav .navbar li .active:before {
+    content: "";
+    width: 2px;
+    height: 0;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 53px;
+    border-bottom: 7px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: none;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+.movies-channel {
+    width: 1200px;
+    margin:  auto;
+    overflow: hidden;
+}
+.tags-panel {
+    border: 1px solid #e5e5e5;
+    padding: 0 20px;
+    margin-top: 40px;
+    width: 1120px;
+    height: 226px;
+}
+
+.tags-line{
+    padding: 10px 0!important;
+}
+.tags-panel li {
+    margin: 0;
+    list-style-type: none;
+}
+.tags-line-border {
+    border-top: 1px dotted #e5e5e5;
+}
+.tags-title {
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #999;
+    float: left;
+}
+.tags {
+    margin-left: 40px !important;
+}
+.tags li.active {
+    background-color: #f34d41;
+    color: #fff;
+}
+.tags li {
+    display: inline-block;
+    margin-left: 12px;
+    border-radius: 14px;
+    padding: 3px 9px;
+}
+.tags li.active a {
+    color: #fff;
+}
+.tags li a{
+    color: #333;
+    font-size: 14px;
+}
+.tags li a:hover{
+    color:red;
+}
+.movies-panel {
+    margin-top: 40px;
+}
+.movies-sorter {
+    overflow: hidden;
+}
+.sort-control {
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+}
+.movies-sorter .cat-sorter {
+    float: left;
+    padding-left: 2px;
+}
+.movies-sorter ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.movies-sorter li {
+    display: inline-block;
+    height: 16px;
+    line-height: 18px;
+    margin-right: 30px;
+}
+.sort-control-group {
+    cursor: pointer;
+    line-height: 16px;
+}
+
+.sort-control-label {
+    font-size: 14px;
+    vertical-align: top;
+}
+
+.sort-radio {
+    background: url("../images/data_image_png_base(5).png") no-repeat;
+}
+.sort-radio-checked {
+    background: url("../images/red.png") no-repeat;
+}
+.movies-list {
+    overflow: hidden;
+    margin-top: 20px;
+}
+.no-movies {
+    margin-top: 40px;
+    font-size: 16px;
+    color: #333;
+}
+.movies-pager {
+    text-align: center;
+}
+.footer {
+    background-color: #262426;
+    padding: 56px 0;
+
+    min-width: 1200px;
+    margin-top: 82px;
+}
+.footer p,.footer p a{
+    color: #666;
+}
+.footer p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+}
+.footer .friendly-links a {
+    color: #ef4238;
+}
+/*电影列表*/
+.movies-list {
+    overflow: hidden;
+    margin-top: 20px;
+}
+.movie-list {
+    margin: -29px 0 20px -25px;
+}
+.movie-list dd {
+    margin: 30px 0 0 30px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+.movie-item {
+    position: relative;
+    border: 1px solid #efefef;
+    margin: 4px;
+}
+.movie-poster {
+    background-color: #fcfcfc;
+    width: 160px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+.movie-poster .poster-default {
+    top: 50%;
+    left: 50%;
+    width: 68px;
+    height: 62px;
+    margin-top: -31px;
+    margin-left: -34px;
+}
+.movie-poster img {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.movie-ver {
+    position: absolute;
+    top: 4px;
+    left: -2px;
+    font-size: 12px;
+    color: #fff;
+}
+.channel-detail {
+    width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+.channel-detail a {
+    color: #333;
+}
+.channel-detail-orange, .channel-detail-prescore {
+    color: #ffb400;
+}
+.channel-detail {
+    width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.channel-detail-prescore i {
+    font-style: normal;
+}
+.stonefont {
+    font-family: stonefont;
+}
+.channel-action-pre {
+    background-color: #12a2f1;
+}
+.channel-action {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 0 3px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 1px;
+}
+.movie-ver i.imax3d {
+    width: 69px;
+    height: 25px;
+    background-image: url("../images/data_image_png_base%20(8).png");
+}
+.movie-ver i {
+    display: inline-block;
+}
+.movie-ver i.m3d {
+    width: 31px;
+    height: 25px;
+    background-image: url(../images/data_image_png_base3d.png);
+}
+.movies-pager {
+    text-align: center;
+    margin-left: 45px;
+}
+.list-pager {
+    list-style: none;
+}
+.list-pager li.active {
+    border-color: #ef4238;
+    background-color: #ef4238;
+}
+.list-pager li {
+    display: inline-block;
+    height: 30px;
+    margin: 0 4px;
+    border: 1px solid #d8d8d8;
+    line-height: 30px;
+    text-align: center;
+    color: #999;
+}
+.list-pager li.active a {
+    color: #fff;
+}
+.list-pager a {
+    display: block;
+    padding: 0 12px;
+}
+.list-pager a {
+    display: block;
+    padding: 0 12px;
+    color: #333;
+}
+.list-pager li.sep {
+    padding: 0 12px;
+}
+
+

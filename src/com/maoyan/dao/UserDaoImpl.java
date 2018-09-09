@@ -83,11 +83,13 @@ public class UserDaoImpl {
 				user.setUserName(rs.getString(3));
 				user.setSex(rs.getString(4));
 				user.setStatus(rs.getString(5));
-				user.setBirthday(rs.getDate(6));
-				user.setJob(rs.getString(7));
-				user.setHobby(rs.getString(8));
-				user.setHeader(rs.getString(9));
-				user.setBalance(rs.getDouble(11));
+				user.setYear(rs.getString(6));
+				user.setMonth(rs.getString(7));
+				user.setDay(rs.getString(8));
+				user.setJob(rs.getString(9));
+				user.setHobby(rs.getString(10));
+				user.setHeader(rs.getString(11));
+				user.setBalance(rs.getDouble(12));
 				userList.add(user);
 			}
 		} catch (SQLException e) {

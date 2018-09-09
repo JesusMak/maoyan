@@ -128,8 +128,8 @@ public class CinemaDaoImpl {
 				cinema.setCinemaName(rs.getString("cinema_name"));
 				cinema.setAddress(rs.getString("address"));
 				cinema.setArea(rs.getString("area"));
-				cinema.setHall(rs.getString("hall"));
-				cinema.setMinPrice(rs.getFloat("min_price"));
+				// cinema.setHall(rs.getString("hall"));
+				// cinema.setMinPrice(rs.getFloat("min_price"));
 				cinemaList.add(cinema);
 			}
 		} catch (SQLException e) {

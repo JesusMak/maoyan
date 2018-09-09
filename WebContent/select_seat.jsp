@@ -418,7 +418,7 @@
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
-                                    <span class="seat selectable" ></span>
+                                    <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
@@ -438,7 +438,7 @@
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
-                                    <span class="seat selectable" ></span>
+                                    <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
                                     <span class="seat selectable"></span>
@@ -677,7 +677,7 @@
 	                    	<div class="confirm-order">
 		                        <div class="login-div">
 		                        	<p class="no-login" style="display:none;">请先<span>登录</span>确定选座</p>
-		                        	<div class="cellphone">
+		                        	<div class="cellphone" style="display:none;">
               							<span>手机号 :</span>
               							<span class="phone-num">178****1953</span>
             						</div>

@@ -9,4 +9,9 @@ $(function(){
 			$(".modal-container").css({'display':'none'});
 		});
 	});
+	$(".del-order").click(function(){
+		var delete_id = $(this).prev().find(".delete_id").html();
+		$(".delete_input").val(delete_id);
+	});
+	
 });

@@ -89,7 +89,7 @@
             		alert("最高管理员不可删除！")
             	}else{
 	                $.get(
-		                "../DeleteAdminCtrl",
+		                "DeleteAdminCtrl",
 		                "name="+name,
 		                function(){
 		                      	window.location.href = 'showAdmin.jsp';
@@ -102,7 +102,7 @@
         $(document).ready(function(){
             $("i").click(function(){
             	$.get(
-		                "../DeleteAdminCtrl",
+		                "DeleteAdminCtrl",
 		                "name="+name,
 		                function(){
 		                      	window.location.href = 'showAdmin.jsp';

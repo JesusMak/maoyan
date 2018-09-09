@@ -54,7 +54,7 @@ ul li{
     float: left;
     width: 133px;
     height: 80px;
-    background: url("../images/header/index.png") no-repeat 0;
+    background: url("images/header/index.png") no-repeat 0;
     background-size: contain;
 }
 .city-container{
@@ -260,7 +260,7 @@ ul li{
     border: none;
     background-color: #ef4238;
     border-radius: 30px;
-    background-image: url("../images/header/search.png");
+    background-image: url("images/header/search.png");
     cursor: pointer;
 }
 .app-download {
@@ -294,7 +294,7 @@ ul li{
     display: inline-block;
     width: 15px;
     height: 24px;
-    background:url("../images/header/ipone.png");
+    background:url("images/header/ipone.png");
     background-size: cover;
 }
 .app-download a .apptext {
@@ -313,7 +313,7 @@ ul li{
     position: absolute;
     left: 0;
     top: 80px;
-    background: url("../images/header/download.png") no-repeat 24px 24px;
+    background: url("images/header/download.png") no-repeat 24px 24px;
     background-color: white;
     background-size: 82px 82px;
     border: 1px solid #dcd4d7;
@@ -574,7 +574,7 @@ img {
         </div>
         <div class="user-info" >
             <div class="user-avatar" onmouseover="usermenudis()" onmouseout="usermenudisn()">
-                <img src="../images/header/user.png" alt=""/>
+                <img src="images/header/user.png" alt=""/>
                 <span class="caret"></span>
                 <div id="user">
                     <a href="">登录</a>

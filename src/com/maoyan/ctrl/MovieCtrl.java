@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,63 +14,56 @@ import com.maoyan.dao.MovieDaoImpl;
 import com.maoyan.service.MovieServiceImpl;
 
 /**
- * ÓÃ»§Ä£¿éÖĞ²éÑ¯µÄ¿ØÖÆ²ã
+ * ç”¨æˆ·æ¨¡å—ä¸­æŸ¥è¯¢çš„æ§åˆ¶å±‚
  */
+@WebServlet("/movieCtrl")
 public class MovieCtrl extends HttpServlet {
 
-       
-
 	/**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MovieCtrl() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MovieCtrl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		this.doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 //´¦Àí×Ö·û±àÂë£ºrequest£¬response
-			request.setCharacterEncoding("utf-8");   //½â¾öµÄÊÇ·şÎñÆ÷µÄÇ°¶Ë±àÂë 
-			response.setCharacterEncoding("utf-8");	//½â¾öµÄÊÇ·şÎñÆ÷µÄºó¶Ë±àÂë 
-			response.setContentType("text/html;charset=utf8");  //½â¾öµÄÊÇä¯ÀÀÆ÷µÄ±àÂë
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// å¤„ç†å­—ç¬¦ç¼–ç ï¼šrequestï¼Œresponse
+		request.setCharacterEncoding("utf-8"); // è§£å†³çš„æ˜¯æœåŠ¡å™¨çš„å‰ç«¯ç¼–ç 
+		response.setCharacterEncoding("utf-8"); // è§£å†³çš„æ˜¯æœåŠ¡å™¨çš„åç«¯ç¼–ç 
+		response.setContentType("text/html;charset=utf8"); // è§£å†³çš„æ˜¯æµè§ˆå™¨çš„ç¼–ç 
 
+		int pageSize = 6;// è§„å®šæ¯é¡µæ˜¯6æ¡è®°å½•
+		int pageNow = 1;// é»˜è®¤æ˜¾ç¤ºç¬¬ä¸€é¡µ
+		// æŸ¥è¯¢æ‰€æœ‰çš„ç”¨æˆ·ï¼šäº¤ç»™UserServiceImplå»åšäº†ã€‚
+		String curPageNow = request.getParameter("curPageNow");
+		if (curPageNow != null) {
+			pageNow = Integer.parseInt(curPageNow);
+		}
+		List<Movie> movieList = MovieServiceImpl.getMovieServiceImpl().queryMovies(pageSize, pageNow);
 
-            int pageSize=6;//¹æ¶¨Ã¿Ò³ÊÇ6Ìõ¼ÇÂ¼
-			int pageNow=1;//Ä¬ÈÏÏÔÊ¾µÚÒ»Ò³
-			//²éÑ¯ËùÓĞµÄÓÃ»§£º½»¸øUserServiceImplÈ¥×öÁË¡£
-		    String curPageNow=request.getParameter("curPageNow");
-		    if(curPageNow!=null){
-		    	     pageNow=Integer.parseInt(curPageNow);
-		    }
-			List<Movie> movieList = MovieServiceImpl.getMovieServiceImpl().queryMovies(pageSize,pageNow);
-		
-			//userList¿ÉÒÔÍ¨¹ırequestÖĞµÄsetAttribute·½·¨½øĞĞ±£´æÖµ
-			request.setAttribute("MOVIE_LIST", movieList);
-			request.setAttribute("PAGE_NOW", pageNow);
-			request.setAttribute("PAGE_COUNT", MovieDaoImpl.getMovieDaoImpl().pageCount);
-			request.getRequestDispatcher("/coming_soon.jsp").forward(request, response);
+		// userListå¯ä»¥é€šè¿‡requestä¸­çš„setAttributeæ–¹æ³•è¿›è¡Œä¿å­˜å€¼
+		request.setAttribute("MOVIE_LIST", movieList);
+		request.setAttribute("PAGE_NOW", pageNow);
+		request.setAttribute("PAGE_COUNT", MovieDaoImpl.getMovieDaoImpl().pageCount);
+		request.getRequestDispatcher("/coming_soon.jsp").forward(request, response);
 
-
-		
-		
-		
-	 
-		  
-		
 	}
-	
-	
-	}
-	
 
-
+}

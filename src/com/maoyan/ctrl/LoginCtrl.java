@@ -71,7 +71,7 @@ public class LoginCtrl extends HttpServlet {
 			// 重定向需要加路径这个：request.getContextPath()
 			// request.getRequestDispatcher("/userJSP/Page/index_log.jsp").forward(request,
 			// response);
-			response.sendRedirect(request.getContextPath() + "index_log.jsp");
+			response.sendRedirect("index_log.jsp");
 		}
 	}
 }

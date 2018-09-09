@@ -633,7 +633,7 @@
       <div class="subnav">
           <ul class="navbar">
               <li><a class="active" href="play_now.jsp">正在热映</a></li>
-              <li><a href="coming_soon.jsp">即将上映</a></li>
+              <li><a href="movieCtrl">即将上映</a></li>
               <li><a href="classic_movies.jsp">经典影片</a></li>
           </ul>
       </div>

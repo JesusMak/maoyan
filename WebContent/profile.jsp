@@ -23,38 +23,42 @@
             <div class="info-content clearfix">           
                 <div class="user-profile-nav">
                     <h1>个人订单</h1>
-                    <a class="order" href="MyOrder.jsp">我的订单</a>
+                    <a class="order" href="myorder.jsp">我的订单</a>
                     <a class="profile active" href="profile.jsp">基本信息</a>
                 </div>
                 <div class="profile-container">
                     <div class="profile-title">基本信息</div>
+                    <form action="FileUpload" enctype="multipart/form-data" method="post">
                     <div class="avatar-container">
                         <div class="avatar-content">
-                        <form action="${pageContext.request.contextPath }/FileUpload" enctype="multipart/form-data" method="post">
-                            <img id="cropedBigImg"  src="${pageContext.request.contextPath }/images/profile/header-image.png"/>
+                        	
+<c:choose>
+
+	<c:when test="${empty user.head }"><img id="cropedBigImg" src="${pageContext.request.contextPath }/images/profile/header-image.png"/></c:when>
+	<c:otherwise><img id="cropedBigImg" src="${pageContext.request.contextPath }/${user.head }"   /></c:otherwise>
+</c:choose>
+
+                        		
                             <div class="J-upload-avatar-w upload-avatar-image">
                                 <input type="button" value="更换头像" class="J-upload-avatar upload-btn"/>
                                 <input type="file" name="head" id="fileUpload"/>
                             </div>
                             <div class="tips">支持JPG,JPEG,PNG格式,且文件需小于1M</div>
-                            <input type="submit" value="提交" class="J-upload-avatar upload-btn"/>
-                            </form>
+         
                         </div>
-                    </div>
-                             
-                    <form class="user user-inform" action="${pageContext.request.contextPath }/UpdateUserCtrl" method="post">            
+                    </div>           
+                        <div class="user user-inform">
                         <div class="user username">
-                        
                             <p>昵称：</p>
                                 <input class="username-text" type="text" placeholder="2-15个字，支持中英文、数字" name="userName"
                                  value="${user.userName }">
                         </div>
                         <div class="user usersex">
                             <p>性别：</p>
-                            <span><input <c:if test="${'男' eq user.sex }">checked</c:if> type="radio" name="gender" value="男" />
+                            <span><input <c:if test="${'男' eq user.sex }">checked</c:if> type="radio" name="sex" value="男" />
                                 <label >男</label>
                             </span>
-                            <span><input <c:if test="${'女' eq user.sex }">checked</c:if> type="radio" name="gender" value="女" />
+                            <span><input <c:if test="${'女' eq user.sex }">checked</c:if> type="radio" name="sex" value="女" />
                                 <label>女</label>
                             </span>
                         </div>
@@ -64,7 +68,7 @@
                                 <div class="ui-select">
                                     <select name="year" class="ui-select">
                                     <c:forEach var="year" begin="1990" end="2018" step="1">
-                                    <option <c:if test="${year eq user.birthday.getYear()+1900}">selected</c:if> value=${year } >${year } </option>
+                                    <option <c:if test="${year eq user.year}">selected</c:if> value=${year } >${year } </option>
                                     
                                     </c:forEach>
                                         
@@ -77,7 +81,7 @@
                                     <select name="month" class="ui-select">
                                         
                                         <c:forEach var="month" begin="1" end="12" step="1">
-                                    <option <c:if test="${month eq user.birthday.getMonth()}">selected</c:if> value=${month } >${month } </option>
+                                    <option <c:if test="${month eq user.month}">selected</c:if> value=${month } >${month } </option>
                                     
                                     </c:forEach>
                                     </select>
@@ -89,7 +93,7 @@
                                     <select name="day" class="ui-select">
                                         
                                         <c:forEach var="day" begin="1" end="31" step="1">
-                                    <option <c:if test="${day eq user.birthday.getDay()-3}">selected</c:if> value=${day } >${day } </option>
+                                    <option <c:if test="${day eq user.day}">selected</c:if> value=${day } >${day } </option>
                                     
                                     </c:forEach>
                                     </select>
@@ -100,19 +104,19 @@
                         <div class="user user-status">
                             <p>生活状态：</p>
                             <span>
-                                <input <c:if test="${'单身' eq user.status}">checked</c:if> type="radio" name="marriage" value="单身"/>
+                                <input <c:if test="${'单身' eq user.status}">checked</c:if> type="radio" name="status" value="单身"/>
                                 <label >单身</label>
                             </span>
                             <span>
-                                <input <c:if test="${'热恋中' eq user.status}">checked</c:if> type="radio" name="marriage" value="热恋中"/>
+                                <input <c:if test="${'热恋中' eq user.status}">checked</c:if> type="radio" name=""status"" value="热恋中"/>
                                 <label >热恋中</label>
                             </span>
                             <span>
-                                <input <c:if test="${'已婚' eq user.status}">checked</c:if> type="radio" name="marriage" value="已婚"/>
+                                <input <c:if test="${'已婚' eq user.status}">checked</c:if> type="radio" name=""status"" value="已婚"/>
                                 <label >已婚</label>
                             </span>
                             <span>
-                                <input <c:if test="${'为人父母' eq user.status}">checked</c:if> type="radio" name="marriage" value="为人父母"/>
+                                <input <c:if test="${'为人父母' eq user.status}">checked</c:if> type="radio" name=""status"" value="为人父母"/>
                                 <label >为人父母</label>
                             </span>
                         </div>
@@ -136,7 +140,7 @@
                                   </select>
                               </div>
                               <div class="ui-select">
-                                  <select id="subjob" name="occupation" class="ui-select"><option value="">--</option></select>
+                                  <select id="subjob"  class="ui-select"><option value="">--</option></select>
                               </div>
                             </span>
                         </div>
@@ -144,63 +148,63 @@
                             <p>兴趣：</p>
                             <div class="interest-list">
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'美食') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-1" value="美食" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'美食') }">checked</c:if> name="hobby"  id="userexinfo-form-interest-1" value="美食" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-1">美食</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'动漫') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-2" value="动漫" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'动漫') }">checked</c:if> name="hobby" id="userexinfo-form-interest-2" value="动漫" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-2">动漫</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'摄影') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-3" value="摄影" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'摄影') }">checked</c:if> name="hobby" id="userexinfo-form-interest-3" value="摄影" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-3">摄影</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'电影') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-4" value="电影" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'电影') }">checked</c:if> name="hobby" id="userexinfo-form-interest-4" value="电影" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-4">电影</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'体育') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-5" value="体育" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'体育') }">checked</c:if> name="hobby" id="userexinfo-form-interest-5" value="体育" class="ui-checkbox" type="checkbox">
                                 <label  for="userexinfo-form-interest-5">体育</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'财经') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-6" value="财经" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'财经') }">checked</c:if> name="hobby" id="userexinfo-form-interest-6" value="财经" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-6">财经</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'音乐') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-7" value="音乐" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'音乐') }">checked</c:if> name="hobby" id="userexinfo-form-interest-7" value="音乐" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-7">音乐</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'游戏') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-8" value="游戏" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'游戏') }">checked</c:if> name="hobby" id="userexinfo-form-interest-8" value="游戏" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-8">游戏</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'科技') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-9" value="科技" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'科技') }">checked</c:if> name="hobby" id="userexinfo-form-interest-9" value="科技" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-9">科技</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'旅游') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-10" value="旅游" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'旅游') }">checked</c:if> name="hobby" id="userexinfo-form-interest-10" value="旅游" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-10">旅游</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'文学') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-11" value="文学" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'文学') }">checked</c:if> name="hobby" id="userexinfo-form-interest-11" value="文学" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-11">文学</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'公益') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-12" value="公益" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'公益') }">checked</c:if> name="hobby" id="userexinfo-form-interest-12" value="公益" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-12">公益</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'汽车') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-13" value="汽车" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'汽车') }">checked</c:if>  id="userexinfo-form-interest-13" value="汽车" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-13">汽车</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'时尚') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-14" value="时尚" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'时尚') }">checked</c:if>  id="userexinfo-form-interest-14" value="时尚" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-14">时尚</label>
                               </span>
                               <span>
-                                <input <c:if test="${fn:contains(user.hobby,'宠物') }">checked</c:if> name="interest[]" id="userexinfo-form-interest-15" value="宠物" class="ui-checkbox" type="checkbox">
+                                <input <c:if test="${fn:contains(user.hobby,'宠物') }">checked</c:if>  id="userexinfo-form-interest-15" value="宠物" class="ui-checkbox" type="checkbox">
                                 <label for="userexinfo-form-interest-15">宠物</label>
                               </span>
                               <span class="bottom-tips">选择你的兴趣使你获得个性化的电影推荐哦</span>
@@ -212,6 +216,7 @@
                         </div>
                         <div class="save clearfix">
                             <input class="form-save-btn" value="保存" type="submit">
+                        </div>
                         </div>
                     </form>
                           

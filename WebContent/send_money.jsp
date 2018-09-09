@@ -356,15 +356,15 @@
                 	
 	            <div class="success-pay" style="display:none;">
                 	<div>支付成功，<span class="five-second">5</span>
-                	秒后
-                	<span class="check-order">
+                	秒后查看订单
+                	<%-- <span class="check-order">
                 		<c:forEach items="${orderList }" var="order">
 	                		<form action="${pageContext.request.contextPath}/OrderSuccessCtrl" method="post">
 			               		<input type="hidden" name="orderid" value="${order.orderId }"/>
 			               		<div class="btn payed">查看订单</div>
 		                	</form>
                 		</c:forEach>
-                	</span>
+                	</span> --%>
                 	</div>
                 </div>
             </div>

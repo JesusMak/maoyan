@@ -51,7 +51,7 @@ public class OrderSuccessCtrl extends HttpServlet {
 		// 修改订单状态
 		OrderSuccessService.getOrderSuccessService().orderSuccess(orderStatus, orderId);
 		// 跳转到订单页面
-		response.sendRedirect("/maoyan/MyOrderCtrl");
+		request.getRequestDispatcher("/MyOrderCtrl").forward(request, response);
 	}
 
 }
