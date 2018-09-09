@@ -1,0 +1,586 @@
+@charset "UTF-8";
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        body {
+            font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+            background-color: #fff;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+
+        /*顶部*/
+        .header{
+            width: 100%;
+            height: 80px;
+            border-bottom: solid 1px #d8d8d8;
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            background-color: white;
+        }
+        .header-inner{
+            width: 1200px;
+            height: 80px;
+            margin: 0 auto;
+        }
+        .logo{
+            float: left;
+            width: 133px;
+            height: 80px;
+            background: url("../images/logo.png") no-repeat 0;
+            /*background-size的contain特定值会保持图像本身的宽高比例,将图片缩放到宽度或高度正好适应定义背景的区域.*/
+            background-size: contain;
+        }
+        /*定位*/
+        .city-container{
+            position: relative;
+            float: left;
+            margin: 0 8px;
+            height: 100%;
+        }
+        .city-container .city-selected{
+            cursor: pointer;
+            height: 100%;
+            padding: 0 10px;
+            border: 1px solid transparent;
+            border-width: 0 1px;
+            z-index: 101;
+        }
+        .city-name{
+            display: inline-block;
+            margin-top: 32px;
+            color: #333;
+        }
+        .caret{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid #666;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            transition: 0.2s;
+        }
+        .caretDown{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-bottom: 5px solid #666;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            transition: 0.2s;
+        }
+        /*下拉地址列表*/
+        .city-container .city-list{
+            background-color: #fff;
+            border: 1px solid #d8d8d8;
+            position: absolute;
+            z-index: 100;
+            width: 478px;
+            height: 330px;
+            /*超出的部分以滚动条的形式显示*/
+            overflow-y: scroll;
+            left: 0;
+            top: 80px;
+            display: none;
+        }
+        .city-container .city-list .city-list-header{
+            padding-left: 20px;
+            line-height: 58px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 10px;
+        }
+        .city-container .city-list ul li{
+            line-height: 30px;
+        }
+        .city-container .city-list ul li span{
+            margin-left: 20px;
+            width: 20px;
+            text-align: center;
+            background-color: #eee;
+            font-weight: 700;
+            line-height: 20px;
+            margin-top: 5px;
+        }
+        .js-geo-city{
+            cursor: pointer;
+        }
+        .city-container .city-list ul li div{
+            margin-left: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .city-container .city-list ul li div a{
+            display: inline-block;
+            line-height: 24px;
+            margin-top: 3px;
+            padding: 0 5px;
+            text-align: center;
+            cursor:pointer;
+        }
+        .city-container .city-list ul li div a:hover{
+            background-color: #f34d41;
+            color: white;
+        }
+        /*导航链接*/
+        .header .nav{
+            background-color: #fff;
+            overflow: hidden;
+            margin-left: 40px;
+            float: left;
+            display: inline-block;
+        }
+        .header .nav ul,.header .nav .navbar li{
+            list-style: none;
+            border: none;
+            margin:0px;
+        }
+        .header .nav .navbar li{
+            float: left;
+        }
+        .header .nav .navbar li a {
+            text-align: center;
+            display: inline-block;
+            height: 80px;
+            line-height: 80px;
+            width: 80px;
+            font-size: 18px;
+            color: #333;
+        }
+        .header .nav .navbar li a.active {
+            color: #fff;
+            background-color: #ef4238;
+        }
+        .header .nav .navbar li .chared:hover{
+            color: #f34d41;
+        }
+        /*app下载*/
+        .app-download{
+
+        }
+        /*登陆*/
+        .user-info{
+            float: right;
+            position: relative;
+            z-index: 9999;
+            height: 100%;
+        }
+        .header .user-info .user-avatar {
+            display: block;
+            border: 1px solid transparent;
+            border-top: none;
+            border-bottom: none;
+            padding: 0 10px;
+            width: 56px;
+            height: 100%;
+        }
+        .header .user-info .user-avatar img {
+            margin-top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .header .user-info .user-menu{
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 65px;
+            border: 1px solid #d8d8d8;
+            border-top: 0;
+            background-color: #fff;
+            font-size: 14px;
+            color: #333;
+            padding: 15px 26px 5px;
+            text-align: center;
+        }
+        .header .user-info .user-menu li>a {
+            color: #999;
+            display: block;
+            word-break: keep-all;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .header .user-info .user-menu li{
+            list-style: none;
+            border: none;
+        }
+        .header .user-info .user-menu li a:hover{
+            color: red;
+        }
+        /*搜索框*/
+        .header form{
+            float: right;
+            margin: 20px 10px 0 0;
+            position: relative;
+        }
+        .header form .search {
+            display: inline-block;
+            height: 40px;
+            line-height: 1.2;
+            width: 260px;
+            padding: 0 40px 0 20px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            border-radius: 30px;
+            background-color: #faf8fa;
+            overflow: hidden;
+            color: #333;
+            list-style: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .header form .submit {
+            display: inline-block;
+            position: absolute;
+            left: 220px;
+            top: 0;
+            height: 40px;
+            width: 40px;
+            background-color: #ef4238;
+            border-radius: 30px;
+            background-image: url(../images/search.png);
+            cursor: pointer;
+            outline: none;
+        }
+        /*app下载*/
+        .app-download {
+            float: right;
+            width: 132px;
+            height: 80px;
+            margin-right: 10px;
+            position: relative;
+        }
+        .app-download a {
+            display: block;
+            padding-top: 28px;
+            padding-left: 14px;
+            width: 100%;
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+        }
+        .app-download a .iphone-icon {
+            float: left;
+            display: inline-block;
+            width: 15px;
+            height: 24px;
+            background-image: url(../images/iphone.png);
+            background-size: cover;
+        }
+        .app-download a .apptext {
+            float: left;
+            display: inline-block;
+            font-size: 16px;
+            color: #000;
+            height: 24px;
+            line-height: 24px;
+            margin: 0 7px;
+        }
+        .app-download a .download-icon {
+            display: none;
+            width: 130px;
+            height: 165px;
+            position: absolute;
+            left: 0;
+            top: 80px;
+            background-color: #fff;
+            background-image: url(../images/app-link-icon.png);
+            background-position: 24px 14px;
+            background-size: 82px 82px;
+            background-repeat: no-repeat;
+            border: 1px solid #dcd4d7;
+            border-top: 0;
+        }
+        .app-download a .download-icon .down-title {
+            margin-top: 115px;
+            margin-bottom: 3px;
+            color: #000;
+        }
+        .app-download a .download-icon p {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            margin: 0;
+        }
+        .header-placeholder {
+            height:73px;
+        }
+        /*主体内容*/
+        /*排行榜选择区*/
+        .subnav {
+            background-color: #47464a;
+            height: 60px;
+            width: 100%;
+            min-width: 1200px;
+            text-align: center;
+        }
+        .subnav .navbar{
+            display: inline-block;
+            overflow: hidden;
+        }
+        .subnav .navbar li {
+            display: inline-block;
+            float: left;
+        }
+        .subnav .navbar li .active {
+            color: #ef4238;
+            position: relative;
+            cursor: default;
+        }
+        .subnav .navbar li a {
+            display: block;
+            font-size: 16px;
+            color: #999;
+            height: 60px;
+            line-height: 30px;
+            padding: 0 40px;
+        }
+        .subnav .navbar li a:hover{
+            color: #fff;
+        }
+        .subnav .navbar li .active:before {
+            content: "";
+            width: 2px;
+            height: 0;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -5px;
+            top: 37px;
+            border-bottom: 7px solid #fff;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: none;
+        }
+        /*排行榜*/
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .wrapper{
+            overflow: hidden;
+        }
+        .main{
+            width: 950px;
+            margin: 0 auto;
+            margin-top: 70px;
+        }
+        .board-content, .update-time {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+        .has-fresh-text {
+            color: #ffb400;
+            margin-left: 4px;
+        }
+        .board-content {
+            margin-top: 6px;
+        }
+        .board-wrapper {
+            margin-top: 40px;
+        }
+        .board-wrapper dd {
+            margin-bottom: 30px;
+            font-size: 0;
+            position: relative;
+         	height:230px
+        }
+
+
+        .board-index {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #f7f7f7;
+            font-size: 18px;
+            color: #999;
+            font-weight: 700;
+            position: absolute;
+            left:-50px;
+            top: 85px;
+        }
+        .board-index-1{
+            background: url("../images/index1.png");
+            font-size: 0;
+        }
+        .board-index-2, .board-index-3 {
+            background: #ffb400;
+            color: #fff;
+        }
+        .board-wrapper .image-link {
+            display: inline-block;
+            width: 160px;
+            height: 220px;
+            margin-left: 25px;
+            position: relative;
+            float: left;
+        }
+        .board-wrapper .image-link .poster-default {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 68px;
+            height: 62px;
+            margin-left: -34px;
+            margin-top: -31px;
+        }
+        .board-img {
+            vertical-align: middle;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .board-item-main {
+            display: inline-block;
+            width: 680px;
+            margin-left: 30px;
+            height: 219px;
+            float: right;
+            line-height: 219px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .board-item-content {
+            display: inline-block;
+            vertical-align: middle;
+            width: 680px;
+            font-size: 0;
+            line-height: 1;
+        }
+        .movie-item-info {
+            font-size: 16px;
+            display: inline-block;
+            width: 420px;
+            vertical-align: middle;
+        }
+        .board-item-content .name a {
+            font-size: 26px;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 420px;
+            display: block;
+        }
+        .board-item-content .star {
+            margin-top: 18px;
+            color: #333;
+        }
+        .board-item-content .releasetime {
+            margin-top: 8px;
+            color: #999;
+        }
+        .score-num {
+            color: #ffb400;
+        }
+
+        .movie-item-number {
+            display: inline-block;
+            text-align: right;
+            width: 260px;
+            vertical-align: top;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .score-num .score {
+            padding-right: 4px;
+        }
+        .score-num .integer {
+            font-size: 56px;
+            font-weight: 700;
+        }
+        .score-num .fraction {
+            font-size: 26px;
+            font-weight: 700;
+        }
+        /*最受期待榜*/
+        .wish .month-wish {
+            font-size: 16px;
+            color: #ffb400;
+        }
+        .wish .month-wish span {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .stonefont {
+            font-family: stonefont;
+        }
+        .pager-main {
+            text-align: center;
+        }
+        .list-pager li.active {
+             border-color: #ef4238;
+             background-color: #ef4238;
+         }
+        .list-pager li {
+            display: inline-block;
+            height: 30px;
+            margin: 0 4px;
+            border: 1px solid #d8d8d8;
+            line-height: 30px;
+            text-align: center;
+            color: #999;
+        }
+        .list-pager li:hover{
+            border-color: #ef4238;
+        }
+        .list-pager a {
+            display: block;
+            padding: 0 12px;
+            color: #333;
+        }
+        .list-pager a {
+            font-size: 14px;
+        }
+        /*尾部*/
+        .footer {
+            background-color: #262426;
+            padding: 56px 0;
+            margin: 0 auto;
+            min-width: 1200px;
+            margin-top: 82px;
+            visibility: hidden;
+        }
+        .footer p, .footer p a {
+            color: #666;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .footer .friendly-links a {
+            color: #ef4238;
+        }
+        .friendly-links span {
+            display: inline-block;
+            border-left: 1px solid #444;
+            margin: 0 7px;
+            height: 12px;
+            position: relative;
+            top: 1px;
+        }
+        .footer .friendly-links a:hover{
+            text-decoration:underline;
+        }
+    </style>

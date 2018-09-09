@@ -18,6 +18,46 @@ public class Cinema {
 	private String hall;
 	// 区域
 	private String area;
+	// 电影院电话
+	private String cinemaPhone;
+	// 电影院服务
+	private String cinemaServer;
+	// 电影院服务内容
+	private String cinemaServerContext;
+	// 最低价格
+	private float minPrice;
+
+	public float getMinPrice() {
+		return minPrice;
+	}
+
+	public void setMinPrice(float minPrice) {
+		this.minPrice = minPrice;
+	}
+
+	public String getCinemaPhone() {
+		return cinemaPhone;
+	}
+
+	public void setCinemaPhone(String cinemaPhone) {
+		this.cinemaPhone = cinemaPhone;
+	}
+
+	public String getCinemaServer() {
+		return cinemaServer;
+	}
+
+	public void setCinemaServer(String cinemaServer) {
+		this.cinemaServer = cinemaServer;
+	}
+
+	public String getCinemaServerContext() {
+		return cinemaServerContext;
+	}
+
+	public void setCinemaServerContext(String cinemaServerContext) {
+		this.cinemaServerContext = cinemaServerContext;
+	}
 
 	public int getCinemaId() {
 		return cinemaId;

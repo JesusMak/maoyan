@@ -1,0 +1,268 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+    background-color: #fff;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.header-placeholder{
+    margin-top: 81px;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.content{
+    margin-top: 30px;
+}
+.main{
+    padding: 0 18px;
+}
+.info-content{
+    border: 1px solid #e1e1e1;
+    position: relative;
+}
+.user-profile-nav{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    background: #f4f3f4;
+    width: 200px;
+    border: 1px solid #e1e1e1;
+}
+h1{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #222222;
+    font-size: 22px;
+    font-weight: 400;
+}
+.info-content .user-profile-nav a{
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    width: 202px;
+    height: 40px;
+    line-height: 40px;
+    color:#333333;
+
+}
+.info-content .user-profile-nav a.active{
+    color: #ffffff;
+    background: #ed3931;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.profile-container{
+    float: left;
+    margin-left: 200px;
+    padding-left: 40px;
+    width: 922px;
+    min-height: 900px;
+}
+.profile-title{
+    padding: 26px 0;
+    color: #ec443f;
+    font-size: 18px;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 30px;
+}
+.avatar-container{
+    float: left;
+    text-align: center;
+    width: 270px;
+}
+.avatar-container .upload-avatar-image{
+    position: relative;
+    cursor: pointer;
+}
+.avatar-container .tips{
+    margin-top: 10px;
+    color: #999;
+    font-size: 18px;
+    line-height: 30px;
+}
+.avatar-container .avatar-content img{
+    width: 258px;
+    height: 258px;
+
+}
+.upload-btn{
+    cursor: pointer;
+    margin: 20px auto 0;
+    width: 182px;
+    height: 56px;
+    line-height: 56px;
+    color: #5b5b5b;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    border: 1px;
+    font-size: 18px;
+    padding: 0;
+}
+#fileUpload{
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    bottom: -50px;
+    direction: ltr;
+    font-size: 200px !important;
+    cursor: pointer;
+}
+.user-inform{
+    float: left;
+    width: 495px;
+    margin-left: 58px;
+}
+.user-inform .user{
+    margin-bottom: 20px;
+    padding-left: 90px;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #666666;
+}
+.user-inform p{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    color: #333333;
+    text-align: right;
+    font-size: 16px;
+
+}
+.user-inform .user_birthday p{
+    text-align: right;
+}
+.username-text{
+    width: 240px;
+    height: 30px;
+    font-size: 12px;
+    padding-left: 10px;
+}
+.user-inform input[type="radio"]{
+    margin-left: 12px;
+    box-sizing: border-box;
+}
+.ui-select:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #999999;
+    position: absolute;
+    top: 13px;
+    right: 3px;
+    z-index: -1;
+}
+.user_birthday span{
+    display: inline-block;
+}
+.ui-select {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid #999;
+    border-radius: 0;
+    font-size: 14px;
+    height: 30px;
+    position: relative;
+}
+.ui-select select {
+    padding: 0 20px 0 10px;
+    border: none;
+    width: 100%;
+    text-transform: none;
+    outline: none;
+    height: 29px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.interest-list{
+    font-size: 14px;
+    width: 300px;
+}
+.user-info input[type="checkbox"]{
+    display: none;
+}
+.user-info .ui-checkbox+label{
+    padding-left: 20px;
+    background: url("../images/profile/kuang1.png")0 no-repeat;
+    display: inline-block;
+}
+.bottom-tips{
+    white-space: nowrap;
+    color: #cccccc;
+}
+.user-inform .user_hobby{
+    height: 110px;
+}
+.user-inform .user input[type="text"] {
+    width: 240px;
+    font-size: 12px;
+    height: 30px;
+    padding-left: 10px;
+}
+.user-inform .save{
+    color: #666;
+    position: relative;
+    margin-top: 40px;
+    padding-left: 90px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.user-inform .form-save-btn {
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 40px;
+    border: none;
+    background-color: #ed3931;
+    padding: 0;
+}
+#tips_window{
+            display:none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+#tips_window div{
+            width: 200px;
+            height: 100px;
+            margin: 290px auto;
+            background-color: whitesmoke;
+            text-align: center;
+            line-height: 100px;
+            position: relative;
+        }
+#confirm{
+            position: absolute;
+            top:65px;
+            left: 83px;
+        }</style>

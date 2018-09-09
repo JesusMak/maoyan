@@ -1,0 +1,513 @@
+@charset "UTF-8";
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        body {
+            font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+            background-color: #fff;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+
+        /*顶部*/
+        .header{
+             width: 100%;
+             height: 80px;
+             border-bottom: solid 1px #d8d8d8;
+             position: fixed;
+             top: 0;
+             z-index: 999;
+            background-color: white;
+         }
+        .header-inner{
+            width: 1200px;
+            height: 80px;
+            margin: 0 auto;
+        }
+        .logo{
+            float: left;
+            width: 133px;
+            height: 80px;
+            background: url("../images/logo.png") no-repeat 0;
+            /*background-size的contain特定值会保持图像本身的宽高比例,将图片缩放到宽度或高度正好适应定义背景的区域.*/
+            background-size: contain;
+        }
+        /*定位*/
+        .city-container{
+            position: relative;
+            float: left;
+            margin: 0 8px;
+            height: 100%;
+        }
+        .city-container .city-selected{
+            cursor: pointer;
+            height: 100%;
+            padding: 0 10px;
+            border: 1px solid transparent;
+            border-width: 0 1px;
+            z-index: 101;
+        }
+        .city-name{
+            display: inline-block;
+            margin-top: 32px;
+            color: #333;
+        }
+        .caret{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid #666;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            transition: 0.2s;
+        }
+        .caretDown{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-bottom: 5px solid #666;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            transition: 0.2s;
+        }
+        /*下拉地址列表*/
+        .city-container .city-list{
+            background-color: #fff;
+            border: 1px solid #d8d8d8;
+            position: absolute;
+            z-index: 100;
+            width: 478px;
+            height: 330px;
+            /*超出的部分以滚动条的形式显示*/
+            overflow-y: scroll;
+            left: 0;
+            top: 80px;
+            display: none;
+        }
+        .city-container .city-list .city-list-header{
+            padding-left: 20px;
+            line-height: 58px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 10px;
+        }
+        .city-container .city-list ul li{
+            line-height: 30px;
+        }
+        .city-container .city-list ul li span{
+            margin-left: 20px;
+            width: 20px;
+            text-align: center;
+            background-color: #eee;
+            font-weight: 700;
+            line-height: 20px;
+            margin-top: 5px;
+        }
+        .js-geo-city{
+            cursor: pointer;
+        }
+        .city-container .city-list ul li div{
+            margin-left: 40px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .city-container .city-list ul li div a{
+            display: inline-block;
+            line-height: 24px;
+            margin-top: 3px;
+            padding: 0 5px;
+            text-align: center;
+            cursor:pointer;
+        }
+        .city-container .city-list ul li div a:hover{
+            background-color: #f34d41;
+            color: white;
+        }
+        /*导航链接*/
+        .header .nav{
+            background-color: #fff;
+            overflow: hidden;
+            margin-left: 40px;
+            float: left;
+            display: inline-block;
+        }
+        .header .nav ul,.header .nav .navbar li{
+            list-style: none;
+            border: none;
+            margin-top: 0
+        }
+        .header .nav .navbar li{
+            float: left;
+        }
+        .header .nav .navbar li a {
+            text-align: center;
+            display: inline-block;
+            height: 80px;
+            line-height: 80px;
+            width: 80px;
+            font-size: 18px;
+            color: #333;
+        }
+        .header .nav .navbar li a.active {
+            color: #fff;
+            background-color: #ef4238;
+        }
+        .header .nav .navbar li .chared:hover{
+            color: #f34d41;
+        }
+        /*app下载*/
+        .app-download{
+
+        }
+        /*登陆*/
+        .user-info{
+            float: right;
+            position: relative;
+            z-index: 9999;
+            height: 100%;
+        }
+        .header .user-info .user-avatar {
+            display: block;
+            border: 1px solid transparent;
+            border-top: none;
+            border-bottom: none;
+            padding: 0 10px;
+            width: 56px;
+            height: 100%;
+        }
+        .header .user-info .user-avatar img {
+            margin-top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .header .user-info .user-menu{
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 80px;
+            border: 1px solid #d8d8d8;
+            border-top: 0;
+            background-color: #fff;
+            font-size: 14px;
+            color: #333;
+            padding: 15px 26px 5px;
+            text-align: center;
+            margin-top:0px;
+        }
+        .header .user-info .user-menu li>a {
+            color: #999;
+            display: block;
+            word-break: keep-all;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .header .user-info .user-menu li{
+            list-style: none;
+            border: none;
+        }
+        .header .user-info .user-menu li a:hover{
+            color: red;
+        }
+        /*搜索框*/
+        .header form{
+            float: right;
+            margin: 20px 10px 0 0;
+            position: relative;
+        }
+        .header form .search {
+            display: inline-block;
+            height: 40px;
+            line-height: 1.2;
+            width: 260px;
+            padding: 0 40px 0 20px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            border-radius: 30px;
+            background-color: #faf8fa;
+            overflow: hidden;
+            color: #333;
+            list-style: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .header form .submit {
+            display: inline-block;
+            position: absolute;
+            left: 220px;
+            top: 0;
+            height: 40px;
+            width: 40px;
+            background-color: #ef4238;
+            border-radius: 30px;
+            background-image: url(../images/search.png);
+            cursor: pointer;
+            outline: none;
+        }
+        /*app下载*/
+        .app-download {
+            float: right;
+            width: 132px;
+            height: 80px;
+            margin-right: 10px;
+            position: relative;
+        }
+        .app-download a {
+            display: block;
+            padding-top: 28px;
+            padding-left: 14px;
+            width: 100%;
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+        }
+        .app-download a .iphone-icon {
+            float: left;
+            display: inline-block;
+            width: 15px;
+            height: 24px;
+            background-image: url(../images/iphone.png);
+            background-size: cover;
+        }
+        .app-download a .apptext {
+            float: left;
+            display: inline-block;
+            font-size: 16px;
+            color: #000;
+            height: 24px;
+            line-height: 24px;
+            margin: 0 7px;
+        }
+        .app-download a .download-icon {
+            display: none;
+            width: 130px;
+            height: 165px;
+            position: absolute;
+            left: 0;
+            top: 80px;
+            background-color: #fff;
+            background-image: url(../images/app-link-icon.png);
+            background-position: 24px 14px;
+            background-size: 82px 82px;
+            background-repeat: no-repeat;
+            border: 1px solid #dcd4d7;
+            border-top: 0;
+        }
+        .app-download a .download-icon .down-title {
+            margin-top: 115px;
+            margin-bottom: 3px;
+            color: #000;
+        }
+        .app-download a .download-icon p {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            margin: 0;
+        }
+        .header-placeholder {
+            height: 81px;
+        }
+
+        /*主体内容*/
+        .container{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        /*类型选择区*/
+        .tags-panel {
+            border: 1px solid #e5e5e5;
+            padding: 0 20px;
+            margin: 40px 0;
+            position: relative;
+        }
+        .tags-panel li, .tags-panel ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .tags-line {
+            padding: 10px 0!important;
+        }
+        .tags-title {
+            height: 24px;
+            line-height: 24px;
+            float: left;
+            color: #999;
+            font-size: 14px;
+        }
+        .tags-panel ul.tags {
+            margin-left: 40px;
+        }
+        .tags li {
+            border-radius: 14px;
+            padding: 3px 9px;
+            display: inline-block;
+            margin-left: 12px;
+        }
+        .tags li a {
+            color: #333;
+            font-size: 14px;
+        }
+        .tags li a:hover{
+            color: #f34d41 ;
+        }
+        .tags li.active {
+            background: #f34d41;
+            color: #fff;
+        }
+        .tags li.active a{
+            color: #fff;
+        }
+        /*影院列表*/
+        .cinemas-list .cinemas-list-header {
+            font-size: 18px;
+            color: #333;
+            border-left: 4px solid #f03d37;
+            padding-left: 6px;
+            line-height: 18px;
+            margin: 0;
+        }
+        .cinemas-list .cinema-cell {
+            display: block;
+            padding: 20px 0;
+            border-bottom: 1px dashed #e5e5e5;
+        }
+        .cinemas-list .cinema-info {
+            display: inline-block;
+            max-width: 80%;
+        }
+        .cinemas-list .cinema-name {
+            display: inline-block;
+            font-size: 16px;
+            line-height: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .cinemas-list .cinema-name:hover{
+            color:#f34d41;
+        }
+        .cinemas-list .cinema-address {
+            font-size: 14px;
+            line-height: 14px;
+            color: #999;
+        }
+        .cinemas-list .buy-btn {
+            float: right;
+            width: 80px;
+            height: 45px;
+            line-height: 45px;
+            margin-left: 36px;
+        }
+        .cinemas-list .buy-btn a {
+            display: inline-block;
+            width: 100%;
+            height: 30px;
+            color: #fff;
+            background-color: #f03d37;
+            font-size: 14px;
+            line-height: 30px;
+            border-radius: 100px;
+            text-align: center;
+            -webkit-box-shadow: 0 2px 10px -2px #f03d37;
+            box-shadow: 0 2px 10px -2px #f03d37;
+        }
+        .cinemas-list .price {
+            float: right;
+            font-size: 12px;
+            color: #999;
+            height: 45px;
+            line-height: 45px;
+        }
+        .cinemas-list .price .rmb {
+            margin-right: -4px;
+        }
+        .red {
+            color: #f03d37;
+        }
+        .cinemas-list .price .price-num {
+            font-size: 16px;
+            margin-right: -3px;
+            font-weight: 700;
+        }
+        .stonefont {
+            font-family: stonefont;
+        }
+        .cinemas-list .price {
+            float: right;
+            font-size: 12px;
+            color: #999;
+            height: 45px;
+            line-height: 45px;
+        }
+        /*分页按钮*/
+        .cinema-pager {
+	    	text-align: center;
+	    	
+		}
+		.list-pager li {
+            display: inline-block;
+            height: 30px;
+            margin: 0 4px;
+            border: 1px solid #d8d8d8;
+            line-height: 30px;
+            text-align: center;
+            color: #999;
+        }
+        .list-pager li .active1{
+           background-color:#ef4238;
+        }
+        .list-pager li .active1 a{
+        	color:#fff;
+        }
+        .list-pager li:hover{
+            border-color: #ef4238;
+        }
+        .list-pager a {
+            display: block;
+            padding: 0 12px;
+            color: #333;
+        }
+        .list-pager a {
+            font-size: 14px;
+        }
+
+        /*底部*/
+        .footer {
+            background-color: #262426;
+            padding: 56px 0;
+            margin: 0 auto;
+            min-width: 1200px;
+            margin-top: 82px;
+            visibility: hidden;
+        }
+        .footer p, .footer p a {
+            color: #666;
+        }
+
+        .footer p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .footer .friendly-links a {
+            color: #ef4238;
+        }
+        .footer .friendly-links a:hover{
+            text-decoration: underline;
+        }
+    </style>

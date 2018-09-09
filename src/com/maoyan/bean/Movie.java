@@ -17,6 +17,8 @@ public class Movie {
 	private double price;
 	// 海报
 	private String post;
+	// 海报id
+	private int postId;
 	// 类型
 	private String type;
 	// 区域
@@ -35,6 +37,74 @@ public class Movie {
 	private int like;
 	// 评论
 	private String comment;
+	// 序号
+	private String number;
+	// 本月想看人数
+	private int monthWish;
+	// 总想看人数
+	private int totalWish;
+	// 总票房
+	private String totalRecords;
+	// 主演
+	private String actor;
+	// 电影id
+	private int cinemaId;
+
+	public int getCinemaId() {
+		return cinemaId;
+	}
+
+	public void setCinemaId(int cinemaId) {
+		this.cinemaId = cinemaId;
+	}
+
+	public int getPostId() {
+		return postId;
+	}
+
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
+
+	public String getActor() {
+		return actor;
+	}
+
+	public void setActor(String actor) {
+		this.actor = actor;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
+	public int getMonthWish() {
+		return monthWish;
+	}
+
+	public void setMonthWish(int monthWish) {
+		this.monthWish = monthWish;
+	}
+
+	public int getTotalWish() {
+		return totalWish;
+	}
+
+	public void setTotalWish(int totalWish) {
+		this.totalWish = totalWish;
+	}
+
+	public String getTotalRecords() {
+		return totalRecords;
+	}
+
+	public void setTotalRecords(String totalRecords) {
+		this.totalRecords = totalRecords;
+	}
 
 	public int getMovieId() {
 		return movieId;

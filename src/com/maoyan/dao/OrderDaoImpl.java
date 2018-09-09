@@ -25,7 +25,7 @@ public class OrderDaoImpl {
 		return orderDaoImpl;
 	}
 
-	// 查询所有订单的方法
+	// 后台查询所有订单的方法
 	public List<Order> queryOrder() {
 		List<Order> orderList = new ArrayList<Order>();
 		try {
@@ -33,14 +33,19 @@ public class OrderDaoImpl {
 			ResultSet rs = prepareStatement.executeQuery();
 			while (rs.next()) {
 				Order order = new Order();
-				order.setOrderId(rs.getInt(1));
+				order.setOrderId(rs.getString(1));
 				order.setMovieId(rs.getInt(2));
 				order.setMovieId(rs.getInt(3));
-				order.setTime(rs.getDate(4));
-				order.setUserPhone(rs.getString(5));
-				order.setField(rs.getString(6));
-				order.setSeat(rs.getString(7));
-				order.setNumber(rs.getInt(8));
+				order.setMovieName(rs.getString(4));
+				order.setOrderStatus(rs.getString(5));
+				order.setPlayTime(rs.getString(6));
+				order.setTime(rs.getDate(7));
+				order.setUserPhone(rs.getString(8));
+				order.setHall(rs.getString(9));
+				order.setTotalPrice(rs.getInt(10));
+				order.setCinemaName(rs.getString(11));
+				order.setSeat(rs.getString(12));
+				order.setNumber(rs.getInt(13));
 				orderList.add(order);
 			}
 

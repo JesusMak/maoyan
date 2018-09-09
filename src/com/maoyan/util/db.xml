@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 根节点只有一个 -->
+<db>
+	<!-- 子节点可以有若干个 -->
+	<!-- dirver-name节点，节点下面可以有自己的文本内容 -->
+	<driver-name>com.mysql.jdbc.Driver</driver-name>
+	<url>jdbc:mysql://127.0.0.1:3306/User</url>
+	<user-name>root</user-name>
+	<user-password>root</user-password>
+	
+	
+</db>

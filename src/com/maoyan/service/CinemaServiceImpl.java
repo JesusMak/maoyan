@@ -1,5 +1,7 @@
 package com.maoyan.service;
 
+import java.util.List;
+
 import com.maoyan.bean.Cinema;
 import com.maoyan.dao.CinemaDaoImpl;
 
@@ -22,6 +24,40 @@ public class CinemaServiceImpl {
 	// 添加电影院方法
 	public void addCinema(Cinema cinema) {
 		CinemaDaoImpl.getCinemaDaoImpl().addCinema(cinema);
+	}
+
+	// 沈荣楚
+	/*
+	 * 插入电影院信息
+	 */
+	public String insertCinema(Cinema cinema) {
+		String cinemaDB = CinemaDaoImpl.getCinemaDaoImpl().insertCinema(cinema);
+		return cinemaDB;
+	}
+
+	/*
+	 * 查询电影院信息
+	 */
+	public List<Cinema> queryCinema(int pageSize, int pageNow, String tagName) {
+		List<Cinema> cinemaList = CinemaDaoImpl.getCinemaDaoImpl().queryCinemaByPage(pageSize, pageNow, tagName);
+		return cinemaList;
+	}
+
+	/*
+	 * 删除电影院
+	 */
+	public String deleteCinema(int cinemaId) {
+		String result = CinemaDaoImpl.getCinemaDaoImpl().deleteCinema(cinemaId);
+		return result;
+	}
+
+	/*
+	 * 更新电影院信息
+	 * 
+	 */
+	public String updateCinema(Cinema cinema) {
+		String cinemaDB = CinemaDaoImpl.getCinemaDaoImpl().updateCinema(cinema);
+		return cinemaDB;
 	}
 
 }

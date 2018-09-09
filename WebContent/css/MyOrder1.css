@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+    background-color: #fff;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.header-placeholder{
+    margin-top: 81px;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.content{
+    margin-top: 30px;
+}
+.main{
+    padding: 0 18px;
+}
+.info-content{
+    border: 1px solid #e1e1e1;
+    position: relative;
+}
+.user-profile-nav{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    background: #f4f3f4;
+    width: 200px;
+    border: 1px solid #e1e1e1;
+}
+h1{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #222222;
+    font-size: 22px;
+    font-weight: 400;
+}
+.info-content .user-profile-nav a{
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    width: 202px;
+    height: 40px;
+    line-height: 40px;
+    color:#333333;
+
+}
+.info-content .user-profile-nav a.active{
+    color: #ffffff;
+    background: #ed3931;
+}
+.order-container{
+    float: left;
+    margin-left: 200px;
+    padding-left: 40px;
+    width: 922px;
+    min-width: 900px;
+}
+.profile-title{
+    margin-bottom: 30px;
+    padding: 26px 0;
+    color: #ec443f;
+    border-bottom: 1px solid #e1e1e1;
+    font-size: 18px;
+}
+.order-box{
+    border: 1px solid #e5e5e5;
+    margin: 0 40px 30px 0;
+}
+.order-header{
+    background: #e7e7e7;
+    font-size: 14px;
+    padding: 16px 20px;
+}
+.order-date{
+    color: #333333;
+    display: inline-block;
+    margin-right: 30px;
+}
+.order-id{
+    color: #999999;
+}
+.del-order{
+    color: white;
+    float: right;
+    width: 15px;
+    height: 16px;
+}
+.order-body{
+    padding: 20px 0 20px 20px;
+}
+.order-body >div{
+    display: inline-block;
+    vertical-align: top;
+}
+.order-content{
+    width: 49%;
+}
+.poster{
+    width: 64px;
+    height: 91px;
+    margin-right: 11px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 1px 2px 0 hsla(0,0%,53%,.5);
+}
+.poster img{
+    width: 66px;
+    height: 91px;
+}
+.movie-name{
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin: 4px 0 7px -6px;
+}
+.cinema-name,.hall-ticket{
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+}
+.show-time{
+    font-size: 12px;
+    color: #f03d37;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.order-price,.order-status,.actions{
+    font-size: 14px;
+    color: #333;
+    width: 12%;
+    line-height: 95px;
+
+}
+.actions{
+    text-align: center;
+}

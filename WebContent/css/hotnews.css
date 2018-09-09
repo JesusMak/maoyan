@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+ul li{
+    list-style: none;
+}
+body{
+    font-family: Microsoft YaHei,Helvetica,Arial,sans-serif;
+}
+.subnav{
+    background-color: #47464a;
+    height: 60px;
+    width: 100%;
+    min-width: 1200px;
+    text-align: center;
+}
+.subnav ul li {
+    display: inline-block;
+    float: left;
+}
+.subnav .navbar{
+    display: inline-block;
+    margin: 0 auto;
+}
+.subnav .navbar li .active {
+    color: #ef4238;
+    position: relative;
+    cursor: default;
+}
+.subnav .navbar li a {
+    display: block;
+    font-size: 16px;
+    color: #999;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 40px;
+}
+.subnav .navbar li a:not(.active):hover{
+    color: white;
+}
+.subnav .navbar li .active::before {
+    content: "";
+    width: 2px;
+    height: 0;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 53px;
+    border-bottom: 7px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: none;
+}
+.app{
+    width: 1200px;
+    margin: 0 auto;
+
+
+}
+.detail-container{
+    margin-top: 60px;
+    width: 730px;
+
+}
+
+.right-container{
+    float: left;
+    width: 550px;
+    margin: 6px 0 0 20px;
+
+}
+.news-image{
+    float: left;
+
+}
+.news-image img{
+    width: 160px;
+    height: 100px;
+}
+.news-list{
+    position: relative;
+    width: 730px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+.clearfix::after {
+    content: "";
+    overflow: hidden;
+    clear: both;
+    display: block;
+}
+.middle-content{
+    font-size: 12px;
+    color: #999;
+    width: 100%;
+    margin: 8px 0 16px;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+
+}
+.bottom-content{
+    font-size: 12px;
+    color: #999999;
+    position: relative;
+}
+.bottom-middle{
+    background-color: #b9c1db;
+    border-radius: 2px;
+    padding: 3px;
+    margin: 0 2px;
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 12px;
+    line-height: 1;
+    max-width: 9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+}
+.bottom-middle a{
+    color: white;
+    display: inline-block;
+    position: relative;
+
+}
+.bottom-left{
+    margin-right: 40px;
+}
+.view-count{
+    float: right;
+    background: url("../images/hot2/eye.png") no-repeat 0 2px;
+    padding-left: 20px;
+}
+.top-content{
+    font-size: 16px;
+}
+.top-content a{
+    color: #333333;
+}
+.top-content a:hover{
+    color: #ef4238;
+}
+.hot-pager{
+    text-align: center;
+}
+.list-pager li {
+    display: inline-block;
+    height: 30px;
+    margin: 0 4px;
+    border: 1px solid #d8d8d8;
+    line-height: 30px;
+    text-align: center;
+
+}
+.list-pager .active{
+    background-color: #ef4238;
+    border-color: #ef4238;
+
+}
+.page_1{
+    color: white;
+}
+.page_2{
+    color: #333333;
+}
+.list-pager li a{
+    padding: 0 12px;
+}
