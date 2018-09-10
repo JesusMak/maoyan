@@ -24,7 +24,7 @@
                             <h5>所有订单</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
+                                    <i class="fa fa-refresh" onclick="del()"></i>
                                 </a>
                             </div>
                         </div>
@@ -83,6 +83,24 @@
             $('.footable').footable();
             $('.footable2').footable();
         });
+        //删除的方法
+        function del(){
+    		$.get(
+	                "DeleteOrderCtrl",
+	                "name="+name,
+	                function(){
+	                      	window.location.href = 'showAdmin.jsp';
+	                	}
+            	)
+    	}
+        
+        $(document).ready(function(){
+            $("tr").click(function(){
+            	var name = $(this).find('td').eq(1).text()
+            	del()
+            })
+        })
+        
     </script>
 </body>
 </html>

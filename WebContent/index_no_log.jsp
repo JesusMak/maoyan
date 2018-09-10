@@ -179,9 +179,9 @@
                     <span>9641.13万</span>
                 </div>
                 <ul>
-                 <c:forEach var="movie" items="${MOVIE_LIST}" varStatus="status" begin="2" end="8">
+                 <c:forEach var="movie" items="${MOVIE_LIST}" varStatus="status" begin="2" end="10">
                     <li>
-                        <i class="num-color">&nbsp;${status.index + 2}&nbsp;</i>
+                        <i class="num-color">&nbsp;${status.index }&nbsp;</i>
                         <span>&nbsp; ${movie.movieName}</span>
                         <span>123143万&nbsp;</span>
                     </li>
