@@ -56,7 +56,7 @@ public class MyOrderCtrl extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("orderList", orderList);
 
-		request.getRequestDispatcher("/myorder.jsp").forward(request, response);
+		request.getRequestDispatcher("myorder.jsp").forward(request, response);
 
 	}
 

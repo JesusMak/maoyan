@@ -81,7 +81,7 @@
             --><li><a href="${pageContext.request.contextPath }/movieCtrl">电影</a></li><!--
             --><li><a href="${pageContext.request.contextPath }/QueryCinemaCtrl">影院</a></li><!--
             --><li><a href="${pageContext.request.contextPath }/QueryMovieBoardCtrl">榜单</a></li><!--
-            --><li><a href="${pageContext.request.contextPath }/en/hotIndex.jsp">热点</a></li>
+            --><li><a href="${pageContext.request.contextPath }/hotIndex.jsp">热点</a></li>
             </ul>
             <div class="download">
                 <div id="app">

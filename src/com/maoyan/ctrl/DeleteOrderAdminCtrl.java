@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.maoyan.service.DeleteOrderService;
 
 /**
- * Servlet implementation class DeleteOrderCtrl
+ * Servlet implementation class DeleteOrderAdminCtrl
  */
-@WebServlet("/DeleteOrderCtrl")
-public class DeleteOrderCtrl extends HttpServlet {
+@WebServlet("/DeleteOrderAdminCtrl")
+public class DeleteOrderAdminCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DeleteOrderCtrl() {
+	public DeleteOrderAdminCtrl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,6 +32,7 @@ public class DeleteOrderCtrl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		this.doPost(request, response);
 	}
 
@@ -42,12 +43,11 @@ public class DeleteOrderCtrl extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String orderId = request.getParameter("orderid");
+		String orderId = request.getParameter("orderId");
 		// 删除订单
 		DeleteOrderService.getDeleteOrderService().deleteOrder(orderId);
 
-		request.getRequestDispatcher("/MyOrderCtrl").forward(request, response);
+		request.getRequestDispatcher("/QueryOrderCtrl").forward(request, response);
 	}
 
 }

@@ -86,7 +86,7 @@
         //删除的方法
         function del(){
         	$.get(
-	                "DeleteOrderCtrl",
+	                "DeleteOrderAdminCtrl",
 	                "orderId="+orderId,
 	                function(){
 	                      	window.location.href = 'showOrder.jsp';
@@ -99,7 +99,7 @@
             	var orderId = $(this).find('td').eq(0).text()
             	//alert(orderId)
             	$.get(
-	                "DeleteOrderCtrl",
+	                "DeleteOrderAdminCtrl",
 	                "orderId="+orderId,
 	                function(){
 	                      	window.location.href = 'showOrder.jsp';
