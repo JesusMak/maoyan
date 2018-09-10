@@ -1,6 +1,7 @@
 package com.maoyan.ctrl;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.maoyan.bean.Movie;
-import com.maoyan.service.MovieServiceImpl;
+import com.maoyan.bean.Cinema;
+import com.maoyan.service.CinemaServiceImpl;
 
 /**
- * Servlet implementation class addMovieCtrl
+ * Servlet implementation class QueryCinemaAdminCtrl
  */
-@WebServlet("/AddMovieCtrl")
-public class AddMovieCtrl extends HttpServlet {
+@WebServlet("/QueryCinemaAdminCtrl")
+public class QueryCinemaAdminCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AddMovieCtrl() {
+	public QueryCinemaAdminCtrl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,7 +34,12 @@ public class AddMovieCtrl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.doPost(request, response);
+		List<Cinema> cinemaList = CinemaServiceImpl.getCinemaServiceImpl().queryCinema();
+		request.setAttribute("CINEMA_LIST", cinemaList);
+		request.getRequestDispatcher("/showCinema.jsp").forward(request, response);
+		for (Cinema c : cinemaList) {
+			System.out.println("电影" + c.getAddress());
+		}
 	}
 
 	/**
@@ -43,23 +49,8 @@ public class AddMovieCtrl extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Movie movie = new Movie();
-		boolean show;
-		if (request.getParameter("show").equals("已上映")) {
-			show = true;
-		} else {
-			show = false;
-		}
-		movie.setMovieName(request.getParameter("name"));
-		movie.setPrice(Double.parseDouble(request.getParameter("price")));
-		movie.setType(request.getParameter("type"));
-		movie.setMovieLong(request.getParameter("movieLong"));
-		movie.setOnShow(show);
-
-		// request.getParameter("moviePost");
-		System.out.println(show);
-		MovieServiceImpl.getMovieServiceImpl().addMovie(movie);
-
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

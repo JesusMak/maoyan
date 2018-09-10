@@ -78,18 +78,18 @@ public class UserDaoImpl {
 			ResultSet rs = prepareStatement.executeQuery();
 			while (rs.next()) {
 				User user = new User();
-				user.setUserPhone(rs.getString(1));
-				user.setPassword(rs.getString(2));
-				user.setUserName(rs.getString(3));
-				user.setSex(rs.getString(4));
-				user.setStatus(rs.getString(5));
-				user.setYear(rs.getString(6));
-				user.setMonth(rs.getString(7));
-				user.setDay(rs.getString(8));
-				user.setJob(rs.getString(9));
-				user.setHobby(rs.getString(10));
-				user.setHeader(rs.getString(11));
-				user.setBalance(rs.getDouble(12));
+				user.setUserPhone(rs.getString("user_phone"));
+				user.setPassword(rs.getString("password"));
+				user.setUserName(rs.getString("user_name"));
+				user.setSex(rs.getString("sex"));
+				user.setStatus(rs.getString("status"));
+				user.setYear(rs.getString("year"));
+				user.setMonth(rs.getString("month"));
+				user.setDay(rs.getString("day"));
+				user.setJob(rs.getString("job"));
+				user.setHobby(rs.getString("hobby"));
+				user.setHeader(rs.getString("head"));
+				user.setBalance(rs.getDouble("balance"));
 				userList.add(user);
 			}
 		} catch (SQLException e) {
@@ -98,5 +98,19 @@ public class UserDaoImpl {
 		}
 
 		return userList;
+	}
+
+	public void deleteUser(String userPhone) {
+
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement("delete from user where user_phone=?");
+			prepareStatement.setString(1, userPhone);
+			prepareStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }

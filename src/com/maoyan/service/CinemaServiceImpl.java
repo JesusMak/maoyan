@@ -60,4 +60,10 @@ public class CinemaServiceImpl {
 		return cinemaDB;
 	}
 
+	// h后台查询电影的方法
+	public List<Cinema> queryCinema() {
+		List<Cinema> cinemaList = CinemaDaoImpl.getCinemaDaoImpl().queryCinema();
+		return cinemaList;
+	}
+
 }

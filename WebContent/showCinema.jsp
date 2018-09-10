@@ -6,100 +6,102 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 所有电影院</title>
+    <title> - FooTable</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <!-- Data Tables -->
-    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico"> <link href="${pageContext.request.contextPath }/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/plugins/footable/footable.core.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/animate.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/style.css?v=4.1.0" rel="stylesheet">
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>电影院</h5>
-                        <!--<div class="ibox-tools">-->
-                            <!--<a class="close-link">-->
-                                <!--<i class="fa fa-times"></i>-->
-                            <!--</a>-->
-                        <!--</div>-->
-                    </div>
-                    <div class="ibox-content">
-                        <div class="">
-                            <a onclick="fnClickAddRow();" href="javascript:void(0);" class="btn btn-primary ">添加行</a>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>所有电影院</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-refresh" onclick="del()"></i>
+                                </a>
+                            </div>
                         </div>
-                        <table class="table table-striped table-bordered table-hover " id="editable">
-                            <thead>
-                                <tr>
-                                    <th>渲染引擎</th>
-                                    <th>浏览器</th>
-                                    <th>平台</th>
-                                    <th>引擎版本</th>
-                                    <th>CSS等级</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-
-                                <tr class="gradeA">
-                                    <td>Presto</td>
-                                    <td>Opera 9.5</td>
-                                    <td>Win 88+ / OSX.3+</td>
-                                    <td class="center">-</td>
-                                    <td class="center">A</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
+                        <div class="ibox-content">
+                            <input type="text" class="form-control input-sm m-b-xs" id="filter"
+                                   placeholder="搜索...">
+                            <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
+                                <thead>
+                                        <tr>
+                                        	<th>电影院ID</th>
+                                    		<th>电影院名字</th>
+                                   		 	<th>电影院地址</th>
+                                    		<th>电影院电话</th>
+                                    		<th>地区</th>
+                                        </tr>
+                                    </thead>
+                               		<tbody>
+                                    <c:forEach var="cinema" items="${CINEMA_LIST }">
+                                        <tr class="gradeX">
+                                            <td>${cinema.cinemaId }</td>
+                                            <td>${cinema.cinemaName }</td>
+                                            <td>${cinema.address }</td>
+                                            <td class="center">${cinema.cinemaPhone }</td>
+                                            <td class="center">${cinema.area }</td>
+                                            <td class="center"><button>删除</button></td>
+                                        </tr>
+									</c:forEach>
+                           			</tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <ul class="pagination pull-right"></ul>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-    <script src="js/plugins/jeditable/jquery.jeditable.js"></script>
-    <!-- Data Tables -->
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.min.js?v=2.1.4"></script>
+    <script src="${pageContext.request.contextPath }/js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="${pageContext.request.contextPath }/js/plugins/footable/footable.all.min.js"></script>
     <!-- 自定义js -->
-    <script src="js/content.js?v=1.0.0"></script>
-    <!-- Page-Level Scripts -->
+    <script src="${pageContext.request.contextPath }/js/content.js?v=1.0.0"></script>
     <script>
-        $(document).ready(function () {
-            $('.dataTables-example').dataTable();
-            /* Init DataTables */
-            var oTable = $('#editable').dataTable();
-            /* Apply the jEditable handlers to the table */
-            oTable.$('td').editable('../example_ajax.php', {
-                "callback": function (sValue, y) {
-                    var aPos = oTable.fnGetPosition(this);
-                    oTable.fnUpdate(sValue, aPos[0], aPos[1]);
-                },
-                "submitdata": function (value, settings) {
-                    return {
-                        "row_id": this.parentNode.getAttribute('id'),
-                        "column": oTable.fnGetPosition(this)[2]
-                    };
-                },
-                "width": "90%",
-                "height": "100%"
-            });
+        $(document).ready(function() {
+            $('.footable').footable();
+            $('.footable2').footable();
         });
-        function fnClickAddRow() {
-            $('#editable').dataTable().fnAddData([
-                "Custom row",
-                "New row",
-                "New row",
-                "New row",
-                "New row"]);
-        }
+        
+        //删除的方法
+        function del(){
+        	$.post(
+	                "DeleteCinemaCtrl",
+	                "cinemaId="+cinemaId,
+	                function(){
+	                      	window.location.href = 'QueryCinemaAdminCtrl';
+	                	}
+            	)
+    	}
+        
+        $(document).ready(function(){
+            $(".gradeX").click(function(){
+            	var cinemaId = $(this).find('td').eq(0).text()
+            	$.post(
+	                "DeleteCinemaCtrl",
+	                "cinemaId="+cinemaId,
+	                function(){
+	                      	window.location.href = 'QueryCinemaAdminCtrl';
+	                	}
+            	)
+            })
+        })
     </script>
 </body>
 </html>
+

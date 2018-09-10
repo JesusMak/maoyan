@@ -55,7 +55,7 @@
                                             <td class="center">${order.userPhone }</td>
                                             <td class="center">${order.totalPrice }</td>
                                             <td class="center">${order.orderStatus }</td>
-                                            <td class="center"><button>删除</button></td>
+                                            <td class="center"><button id="but">删除</button></td>
                                         </tr>
 									</c:forEach>
                            </tbody>
@@ -85,19 +85,26 @@
         });
         //删除的方法
         function del(){
-    		$.get(
+        	$.get(
 	                "DeleteOrderCtrl",
-	                "name="+name,
+	                "orderId="+orderId,
 	                function(){
-	                      	window.location.href = 'showAdmin.jsp';
+	                      	window.location.href = 'showOrder.jsp';
 	                	}
             	)
     	}
         
         $(document).ready(function(){
-            $("tr").click(function(){
-            	var name = $(this).find('td').eq(1).text()
-            	del()
+            $(".gradeX").click(function(){
+            	var orderId = $(this).find('td').eq(0).text()
+            	//alert(orderId)
+            	$.get(
+	                "DeleteOrderCtrl",
+	                "orderId="+orderId,
+	                function(){
+	                      	window.location.href = 'showOrder.jsp';
+	                	}
+            	)
             })
         })
         

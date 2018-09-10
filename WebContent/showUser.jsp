@@ -22,9 +22,9 @@
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>所有用户</h5>
-                            <div class="ibox-tools">
+                          <div class="ibox-tools">
                                 <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
+                                    <i class="fa fa-refresh" onclick="del()"></i>
                                 </a>
                             </div>
                         </div>
@@ -33,6 +33,7 @@
                                    placeholder="搜索...">
                             <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
                                 <thead>
+                                
                                         <tr>
                                         	<th>用户头像</th>
                                             <th>用户手机号</th>
@@ -50,16 +51,17 @@
                                     
                                     <c:forEach var="user" items="${USER_LIST }">
                                         <tr class="gradeX">
-                                        	<td><img alt="" src="${user.head} "></td>
+                                        	<td><img alt="" src="${user.header} "></td>
                                             <td>${user.userPhone }</td>
                                             <td>${user.password }</td>
                                             <td>${user.userName }</td>
                                             <td class="center">${user.sex }</td>
-                                            <td class="center">${user.birthday }</td>
+                                            <td class="center">${user.status }</td>
+                                            <td class="center">${user.year }-${user.month }-${user.day }</td>
                                             <td class="center">${user.job }</td>
                                             <td class="center">${user.hobby }</td>
                                             <td class="center">${user.balance }</td>
-                                            <td class="center"><button>删除</button></td>
+                                            <td class="center"><button onclick="del()">删除</button></td>
                                         </tr>
 									</c:forEach>
 
@@ -88,6 +90,31 @@
             $('.footable').footable();
             $('.footable2').footable();
         });
+        
+      //删除的方法
+        function del(){
+        	$.get(
+	                "DeleteUserCtrl",
+	                "userPhone="+phone,
+	                function(){
+	                      	window.location.href = 'showUser.jsp';
+	                	}
+            	)
+    	}
+        
+        $(document).ready(function(){
+            $(".gradeX").click(function(){
+            	var phone = $(this).find('td').eq(1).text()
+            	//alert(orderId)
+            	$.get(
+	                "DeleteUserCtrl",
+	                "userPhone="+phone,
+	                function(){
+	                      	window.location.href = 'showUser.jsp';
+	                	}
+            	)
+            })
+        })
     </script>
 </body>
 </html>

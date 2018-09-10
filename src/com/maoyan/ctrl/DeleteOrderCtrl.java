@@ -43,11 +43,11 @@ public class DeleteOrderCtrl extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String orderId = request.getParameter("orderid");
+		String orderId = request.getParameter("orderId");
 		// 删除订单
 		DeleteOrderService.getDeleteOrderService().deleteOrder(orderId);
 
-		request.getRequestDispatcher("/MyOrderCtrl").forward(request, response);
+		request.getRequestDispatcher("/QueryOrderCtrl").forward(request, response);
 	}
 
 }

@@ -20,24 +20,24 @@
 			$("#J_iframe").attr("src","${pageContext.request.contextPath }/addMovie.jsp");
 		});
 		$("#show-movie").click(function(){
-			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showMovie.jsp");
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/QueryMovieCtrl");
 		});
 		
 		$("#add-cinema").click(function(){
 			$("#J_iframe").attr("src","${pageContext.request.contextPath }/addCinema.jsp");
 		});
 		$("#show-cinema").click(function(){
-			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showCinema.jsp");
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/QueryCinemaAdminCtrl");
 		});
 		$("#show-all-user").click(function(){
-			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showUser.jsp");
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/QueryUserCtrl");
 		});
 		
 		$("#add-admin").click(function(){
 			$("#J_iframe").attr("src","${pageContext.request.contextPath }/addAdmin.jsp");
 		});
 		$("#show-admin").click(function(){
-			$("#J_iframe").attr("src","${pageContext.request.contextPath }/showAdmin.jsp");
+			$("#J_iframe").attr("src","${pageContext.request.contextPath }/QueryAdminCtrl");
 		});
 		
 	});
@@ -70,7 +70,7 @@
                         <span class="ng-scope">分类</span>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="${pageContext.request.contextPath }/AdminCtrl">
+                        <a class="J_menuItem" href="${pageContext.request.contextPath }/QueryOrderCtrl">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">查看订单</span>
                         </a>
@@ -87,7 +87,7 @@
                                 <a class="J_menuItem" id="add-movie">添加电影</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" id="show-movie">所有电影</a>
+                                <a class="J_menuItem" id="show-movie"<%--  href="${pageContext.request.contextPath }/QueryMovieCtrl" --%>>所有电影</a>
                             </li>
 
                         </ul>

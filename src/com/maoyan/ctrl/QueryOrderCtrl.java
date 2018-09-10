@@ -39,7 +39,7 @@ public class QueryOrderCtrl extends HttpServlet {
 		List<Order> orderList = OrderServiceImpl.getOrderServiceImpl().queryOrder();
 		HttpSession session = request.getSession();
 		session.setAttribute("ORDER_LIST", orderList);
-		request.getRequestDispatcher("/showOrder.jsp").forward(request, response);
+		request.getRequestDispatcher("/admin.jsp").forward(request, response);
 		for (Order o : orderList) {
 			System.out.println(o.getOrderId());
 		}

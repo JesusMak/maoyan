@@ -292,4 +292,41 @@ public class MovieDaoImpl {
 		}
 		return movieList;
 	}
+
+	public void deleteMovie(String movieId) {
+		PreparedStatement preparedStatement;
+		try {
+			preparedStatement = connection.prepareStatement("delete from movie where movie_id=?");
+			preparedStatement.setString(1, movieId);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	// 添加电影
+	public void addMovie(Movie movie) {
+		String show;
+		if (movie.isOnShow()) {
+			show = "已上映";
+		} else {
+			show = "未上映";
+		}
+
+		try {
+			PreparedStatement prepareStatement = connection
+					.prepareStatement("insert into movie(movie_name,price,type,movie_long,on_show) values(?,?,?,?,?)");
+			prepareStatement.setString(1, movie.getMovieName());
+			prepareStatement.setFloat(2, (long) movie.getPrice());
+			prepareStatement.setString(3, movie.getType());
+			prepareStatement.setString(4, movie.getMovieLong());
+			prepareStatement.setString(5, show);
+			prepareStatement.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

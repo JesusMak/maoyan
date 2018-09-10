@@ -48,6 +48,6 @@ public class QueryAdminCtrl extends HttpServlet {
 		// 查所有管理员
 		List<Admin> adminList = AdminServiceImpl.getAdminServiceImpl().queryAdmin();
 		request.getSession().setAttribute("ADMIN_LIST", adminList);
-		request.getRequestDispatcher("/admin.jsp").forward(request, response);
+		request.getRequestDispatcher("/showAdmin.jsp").forward(request, response);
 	}
 }

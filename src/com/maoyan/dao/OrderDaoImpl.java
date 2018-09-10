@@ -33,27 +33,25 @@ public class OrderDaoImpl {
 			ResultSet rs = prepareStatement.executeQuery();
 			while (rs.next()) {
 				Order order = new Order();
-				order.setOrderId(rs.getString(1));
-				order.setMovieId(rs.getInt(2));
-				order.setMovieId(rs.getInt(3));
-				order.setMovieName(rs.getString(4));
-				order.setOrderStatus(rs.getString(5));
-				order.setPlayTime(rs.getString(6));
-				order.setTime(rs.getDate(7));
-				order.setUserPhone(rs.getString(8));
-				order.setHall(rs.getString(9));
-				order.setTotalPrice(rs.getInt(10));
-				order.setCinemaName(rs.getString(11));
-				order.setSeat(rs.getString(12));
-				order.setNumber(rs.getInt(13));
+				order.setOrderId(rs.getString("order_id"));
+				order.setMovieId(rs.getInt("cinema_id"));
+				order.setMovieId(rs.getInt("movie_id"));
+				order.setMovieName(rs.getString("movie_name"));
+				order.setOrderStatus(rs.getString("order_status"));
+				order.setPlayTime(rs.getString("play_time"));
+				order.setTime(rs.getDate("time"));
+				order.setUserPhone(rs.getString("user_phone"));
+				order.setHall(rs.getString("hall"));
+				order.setTotalPrice(rs.getInt("total_price"));
+				order.setCinemaName(rs.getString("cinema_name"));
+				order.setSeat(rs.getString("seat"));
+				order.setNumber(rs.getInt("number"));
 				orderList.add(order);
 			}
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return orderList;
 	}
 

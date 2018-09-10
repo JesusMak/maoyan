@@ -183,7 +183,7 @@ border-color: transparent transparent #333;/*透明 透明  灰*/
     background-color: rgb(239,66,56);
     outline: none;
     border: none;
-    background-image: url("../img/search.png");
+    background-image: url("../images/search.png");
 }
 /*头像，登录注册*/
 .header{

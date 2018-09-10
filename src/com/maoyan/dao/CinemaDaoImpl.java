@@ -33,7 +33,7 @@ public class CinemaDaoImpl {
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"insert into cinema(cinema_name,address,cinema_phone,cinema_server,cinema_server_context,area) values(?,?,?,?,?,?,?)");
+					"insert into cinema(cinema_name,address,cinema_phone,cinema_server,cinema_server_context,area) values(?,?,?,?,?,?)");
 
 			preparedStatement.setString(1, cinema.getCinemaName());
 			preparedStatement.setString(2, cinema.getAddress());
@@ -43,7 +43,7 @@ public class CinemaDaoImpl {
 			preparedStatement.setString(5, cinema.getCinemaServerContext());
 			preparedStatement.setString(6, cinema.getArea());
 			System.out.println(cinema.getAddress());
-			int executeUpdate = preparedStatement.executeUpdate();
+			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -191,6 +191,32 @@ public class CinemaDaoImpl {
 		}
 		return cinemaNameDB;
 
+	}
+
+	public List<Cinema> queryCinema() {
+		PreparedStatement preparedStatement;
+		List<Cinema> cinemaList = new ArrayList<Cinema>();
+		try {
+			preparedStatement = connection.prepareStatement("select * from cinema");
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				Cinema cinema = new Cinema();
+				cinema.setCinemaId(rs.getInt("cinema_id"));
+				cinema.setCinemaName(rs.getString("cinema_name"));
+				cinema.setAddress(rs.getString("address"));
+				cinema.setCinemaPhone(rs.getString("cinema_phone"));
+				cinema.setArea(rs.getString("area"));
+				// cinema.setHall(rs.getString("hall"));
+				// cinema.setMinPrice(rs.getFloat("min_price"));
+				cinemaList.add(cinema);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return cinemaList;
 	}
 
 }

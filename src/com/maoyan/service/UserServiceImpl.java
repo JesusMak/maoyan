@@ -42,4 +42,9 @@ public class UserServiceImpl {
 	public List<User> queryUser() {
 		return UserDaoImpl.getUserDaoImpl().queryUser();
 	}
+
+	public void deleteUser(String userPhone) {
+		UserDaoImpl.getUserDaoImpl().deleteUser(userPhone);
+
+	}
 }

@@ -52,4 +52,14 @@ public class MovieServiceImpl {
 		return movieList;
 	}
 
+	public void deleteMovie(String movieId) {
+		// TODO Auto-generated method stub
+		MovieDaoImpl.getMovieDaoImpl().deleteMovie(movieId);
+	}
+	// 添加电影
+
+	public void addMovie(Movie movie) {
+		MovieDaoImpl.getMovieDaoImpl().addMovie(movie);
+	}
+
 }

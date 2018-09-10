@@ -94,7 +94,6 @@ function addCinema() {
 	var price = $("#moviePrice").val()
 	var type = $("#movieType").val()
 	var movieLong = $("#movieLong").val()
-	//var show = $("#movieLong").val()
 	if(name==""||price==""||type==""||movieLong==""){
 		alert("请输入完整信息！")
 	}else{
@@ -102,7 +101,7 @@ function addCinema() {
 		    //几个参数需要注意一下
 		        type: "POST",//方法类型
 		        //dataType: "json",//预期服务器返回的数据类型
-		        url: "../AddMovieCtrl",//url
+		        url: "AddMovieCtrl",//url
 		        data: $("#movieForm").serialize(),
 		        success: function (result) {
 		            console.log(result);//打印服务端返回的数据(调试用)

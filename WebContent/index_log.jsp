@@ -59,9 +59,9 @@
             <!--登录注册-->
             <div class="header">
                 <div class="login" >
-                    <a>我的订单</a>
-                    <a>基本信息</a>
-                    <a>退出</a>
+                    <a href="MyOrderCtrl">我的订单</a>
+                    <a href="profile.jsp">基本信息</a>
+                    <a href="">退出</a>
                 </div>
                 <img src="${pageContext.request.contextPath }/images/header.png">
                 <div class="triangle"></div>
@@ -100,7 +100,7 @@
 				Movie m = null;
 				if(context.getAttribute("MOVIE_LIST")!=null){
 					movieList = (List)context.getAttribute("MOVIE_LIST");
-					for(int i=0; i<movieList.size(); i++){
+					for(int i=0; i<8; i++){
 						m = new Movie();
 						m = (Movie)movieList.get(i);
 				%>
@@ -122,7 +122,7 @@
                 </a>
                 <ul>
                 
-                <c:forEach var="movie" items="${MOVIE_LIST}">
+                <c:forEach var="movie" items="${MOVIE_LIST}" begin="1" end="8" >
                     <li >
                         <div class="hot-movie">
                             <img src="${pageContext.request.contextPath }/${movie.post }">
@@ -206,9 +206,9 @@
                 </div>
                 <ul>
                     
-                    <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status">
+                    <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status" begin="4" end="10">
                     <li>
-                        <i>&nbsp;${status.index+4 }&nbsp;</i>
+                        <i>&nbsp;${status.index }&nbsp;</i>
                         <span>&nbsp;${movie.movieName }</span>
                         <span style="color:#fdb863">123143人想看&nbsp;</span>
                     </li>
@@ -230,9 +230,9 @@
                     <span>9.1分</span>
                 </div>
                 <ul>
-                <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status">
+                <c:forEach var="movie" items="${MOVIE_LIST }" varStatus="status" begin="2" end="10">
                     <li>
-                        <i class="num-color">&nbsp;${status.index +2}&nbsp;</i>
+                        <i class="num-color">&nbsp;${status.index }&nbsp;</i>
                         <span>&nbsp;${movie.movieName }</span>
                         <span>8.7分&nbsp;</span>
                     </li>

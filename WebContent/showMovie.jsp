@@ -24,7 +24,7 @@
                             <h5>所有电影</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
+                                    <i class="fa fa-refresh" onclick="del()"></i>
                                 </a>
                             </div>
                         </div>
@@ -34,25 +34,27 @@
                             <table class="footable table table-stripped" data-page-size="8" data-filter=#filter>
                                 <thead>
                                         <tr>
-                                            <th>订单ID</th>
+                                        	<th>电影ID</th>
                                             <th>电影名字</th>
-                                            <th>电影院名字</th>
-                                            <th>下单时间</th>
-                                            <th>用户名</th>
-                                            <th>价格</th>
+                                            <th>主演</th>
+                                            <th>类型</th>
+                                            <th>地区</th>
+                                            <th>上映时间</th>
+                                            <th>评分</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     
-                                    <c:forEach var="order" items="${ORDER_LIST }">
+                                    <c:forEach var="movie" items="${MOVIE_LIST }">
                                         <tr class="gradeX">
-                                            <td>${order.orderId }</td>
-                                            <td>${order.movieId }</td>
-                                            <td>${order.cinemaId }</td>
-                                            <td class="center">${order.time }</td>
-                                            <td class="center">${order.userPhone }</td>
-                                            <td class="center">${order.number }</td>
+                                            <td>${movie.movieId }</td>
+                                            <td>${movie.movieName }</td>
+                                            <td>${order.actor }</td>
+                                            <td class="center">${movie.type }</td>
+                                            <td class="center">${movie.area }</td>
+                                            <td class="center">${movie.time }</td>
+                                            <td class="center">${movie.grade }</td>
                                             <td class="center"><button>删除</button></td>
                                         </tr>
 									</c:forEach>
@@ -81,6 +83,31 @@
             $('.footable').footable();
             $('.footable2').footable();
         });
+        
+        //删除的方法
+        function del(){
+        	$.get(
+	                "DeleteMovieCtrl",
+	                "movieId="+movieId,
+	                function(){
+	                      	window.location.href = 'showMovie.jsp';
+	                	}
+            	)
+    	}
+        
+        $(document).ready(function(){
+            $(".gradeX").click(function(){
+            	var moveiId = $(this).find('td').eq(0).text()
+            	alert(movieId)
+            	$.get(
+	                "DeleteMovieCtrl",
+	                "movieId="+movieId,
+	                function(){
+	                      	window.location.href = 'showMovie.jsp';
+	                	}
+            	)
+            })
+        })
     </script>
 </body>
 </html>

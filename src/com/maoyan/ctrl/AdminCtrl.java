@@ -31,8 +31,7 @@ public class AdminCtrl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 首先查询一次管理员
-		request.getRequestDispatcher("/QueryAdminCtrl").forward(request, response);
-		// request.getRequestDispatcher("/queryOrderCtrl").forward(request, response);
+		request.getRequestDispatcher("/QueryOrderCtrl").forward(request, response);
 		// request.getRequestDispatcher("/queryUserCtrl").forward(request, response);
 
 	}

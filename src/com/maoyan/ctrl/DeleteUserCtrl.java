@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.maoyan.bean.Movie;
-import com.maoyan.service.MovieServiceImpl;
+import com.maoyan.service.UserServiceImpl;
 
 /**
- * Servlet implementation class addMovieCtrl
+ * Servlet implementation class DeleteUserCtrl
  */
-@WebServlet("/AddMovieCtrl")
-public class AddMovieCtrl extends HttpServlet {
+@WebServlet("/DeleteUserCtrl")
+public class DeleteUserCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AddMovieCtrl() {
+	public DeleteUserCtrl() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,7 +32,9 @@ public class AddMovieCtrl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.doPost(request, response);
+		String userPhone = request.getParameter("userPhone");
+		UserServiceImpl.getUserServiceImpl().deleteUser(userPhone);
+		request.getRequestDispatcher("/QueryUserCtrl").forward(request, response);
 	}
 
 	/**
@@ -43,23 +44,8 @@ public class AddMovieCtrl extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Movie movie = new Movie();
-		boolean show;
-		if (request.getParameter("show").equals("已上映")) {
-			show = true;
-		} else {
-			show = false;
-		}
-		movie.setMovieName(request.getParameter("name"));
-		movie.setPrice(Double.parseDouble(request.getParameter("price")));
-		movie.setType(request.getParameter("type"));
-		movie.setMovieLong(request.getParameter("movieLong"));
-		movie.setOnShow(show);
-
-		// request.getParameter("moviePost");
-		System.out.println(show);
-		MovieServiceImpl.getMovieServiceImpl().addMovie(movie);
-
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

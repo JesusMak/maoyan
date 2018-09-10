@@ -8,6 +8,7 @@
     <title>添加电影院</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <script src="js/JQuery3.3.1.js" type="application/javascript"></script>
     <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
@@ -79,25 +80,28 @@ function addCinema() {
 	var add = $("#cinemaAdd").val()
 	var phone = $("#cinemaPhone").val()
 	var area = $("#cinemaArea").val()
+	var server = $("#cinemaServer").val()
+	var context = $("#cinemaServerContext").val()
 	if(name==""||add==""||phone==""||area==""||server==""||context==""){
 		alert("请输入完整信息！")
 	}else{
-		$.ajax({
-		    //几个参数需要注意一下
-		        type: "POST",//方法类型
-		        //dataType: "json",//预期服务器返回的数据类型
-		        url: "../AddCinemaCtrl",//url
-		        data: $("#cinemaForm").serialize(),
-		        success: function (result) {
-		            console.log(result);//打印服务端返回的数据(调试用)
-		            if (result.resultCode == 200) {
-		                alert("SUCCESS");
-		            }
-		        },
-		        error : function() {
-		            alert("异常！");
-		        }
-		    })
+			//#cinemaForm
+			$.ajax({
+			    //几个参数需要注意一下
+			        type: "POST",//方法类型
+			        dataType: "html",//预期服务器返回的数据类型
+			        url: "AddCinemaCtrl",//url
+			        data: $('#cinemaForm').serialize(),
+			        success: function (result) {
+			            console.log(result);//打印服务端返回的数据(调试用)
+			            if (result.resultCode == 200) {
+			                alert("SUCCESS");
+			            }
+			        },
+			        error : function() {
+			            alert("异常！");
+			        }
+			    })
 	}
 }
 
